@@ -86,7 +86,7 @@
                     "name": "La Siesta",
                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Gustave_Dore_-_La_Siesta%2C_Memory_of_Spain_-_Google_Art_Project.jpg/1200px-Gustave_Dore_-_La_Siesta%2C_Memory_of_Spain_-_Google_Art_Project.jpg",
                     "completedIn": "1868",
-                    "description": null
+                    "description": "----"
                 },
                 {
                     "name": "The Enigma",
@@ -110,7 +110,7 @@
                     "name": "Alpine Scene",
                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Gustave_Dor%C3%A9_-_Alpine_Scene_-_1967.588_-_Art_Institute_of_Chicago.jpg/1200px-Gustave_Dor%C3%A9_-_Alpine_Scene_-_1967.588_-_Art_Institute_of_Chicago.jpg",
                     "completedIn": "1865",
-                    "description": null
+                    "description": "----"
                 }
             ]
         },
@@ -184,8 +184,8 @@
                 },
                 {
                     "name": "Death in the Sickroom",
-                    "image": "1893",
-                    "completedIn": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Edvard_Munch_-_Death_in_the_Sickroom_-_Google_Art_Project.jpg/1200px-Edvard_Munch_-_Death_in_the_Sickroom_-_Google_Art_Project.jpg",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Edvard_Munch_-_Death_in_the_Sickroom_-_Google_Art_Project.jpg/1200px-Edvard_Munch_-_Death_in_the_Sickroom_-_Google_Art_Project.jpg",
+                    "completedIn": "1893",
                     "description": "Death in the Sickroom from 1893 goes back to the memory of sister Sophie's death. She died of tuberculosis in 1877. The motif is one of a number of Munch's portrayals of sickness, death and sorrow in the family"
                 }
             ]
@@ -287,7 +287,7 @@
                 {
                     "name": "Nymphéas",
                     "image": "https://images.prismic.io/barnebys/37d91e82-c30e-4850-b47d-8d22b4924249_Claude+Monet+%281840-1926%29_+Le+Bassin+aux+nymph%C3%A9as%2C+1917-1919%2C+huile+sur+toile%2C+100+x+200+cm.+Photo+%C2%A9+Sotheby%27s.jpg?auto=compress,format",
-                    "completedIn": "----",
+                    "completedIn": "1926",
                     "description": "Monet painted a series of waterlilies, they are scattered all over the world and are recognized as his most famous paintings"
                 },
                 {
@@ -355,28 +355,28 @@
                     "description": "Depicts the biblical tale of Roman soldiers executing male newborns in Bethlehem on the orders of King Herod"
                 },
                 {
-                    "name": "",
-                    "image": "",
-                    "completedIn": "",
-                    "description": ""
+                    "name": "Prometheus Bound",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Rubens_-_Prometheus_Bound.jpg/1200px-Rubens_-_Prometheus_Bound.jpg",
+                    "completedIn": "1612",
+                    "description": "With hooked beak, a monstrous vulture digs about in the liver of Prometheus, who is given no peace from his torments as ever and again the savage bird draws near his self-renewing breast and attacks it punishingly"
                 },
                 {
-                    "name": "",
-                    "image": "",
-                    "completedIn": "",
-                    "description": ""
+                    "name": "The Descent from the Cross",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Descent_from_the_Cross_%28Rubens%29_July_2015-1a.jpg",
+                    "completedIn": "1612",
+                    "description": "Depicts Christ's lifeless body being taken down from the cross by a group of people, among them the Virgin Mary, John the Apostle cloaked in red and Mary Magdalene, described by the cathedral as “a paragon of Baroque art”"
                 },
                 {
-                    "name": "",
-                    "image": "",
-                    "completedIn": "",
-                    "description": ""
+                    "name": "The Judgement of Paris",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Peter_Paul_Rubens_-_The_Judgment_of_Paris_-_WGA20307.jpg/2560px-Peter_Paul_Rubens_-_The_Judgment_of_Paris_-_WGA20307.jpg",
+                    "completedIn": "1636",
+                    "description": "Depicts the mythic Roman tale of the same name in which Paris was forced to judge the most beautiful of three goddesses — Venus, Minerva and Juno — in events that ignited the Trojan War"
                 },
                 {
-                    "name": "",
-                    "image": "",
-                    "completedIn": "",
-                    "description": ""
+                    "name": "The Hippopotamus and Crocodile Hunt",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Peter_Paul_Rubens_083.jpg",
+                    "completedIn": "1616",
+                    "description": "Commissioned by Maximilian I, Elector of Bavaria to adorn his summer residence, the Schleissheim Palace — is just one of these hunting pieces and today resides at Munich's Alte Pinokothek."
                 }
             ]
         }

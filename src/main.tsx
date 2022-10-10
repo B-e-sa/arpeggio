@@ -1,19 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
+
 import Home from './pages/home/Home'
-import Artist from './pages/artists/Artist'
+import Artists from './pages/artists/Artists'
+import Artist from './pages/artist/Artist'
+import Header from './components/Header'
+import Gallery from './pages/gallery/Gallery'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="/:name" element={<Artist />} />
-        </Route>
+      <Header />
+      <Routes >
+        <Route index element={<Home />} />
+        <Route path='gallery' element={<Gallery />} />
+        <Route path='artists' element={<Artists />} />
+        <Route path="artists/:name" element={<Artist />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

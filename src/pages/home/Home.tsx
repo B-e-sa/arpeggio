@@ -1,20 +1,23 @@
 import HomeContainer from "./Home.style"
 
 const Home = () => {
-
-  
-
   return (
-    <HomeContainer image={'https://images7.alphacoders.com/493/493639.jpg'}>
+    <HomeContainer>
       <main>
         <div>
           <h1>Arpeggio</h1>
+          <div>
+            <p>WELCOME TO ARPEGGIO</p>
+          </div>
         </div>
-        <div>
-          <p>Arpeggio is a site that shows to you an variety of artists and their artworks</p>
+
+        <div id="presentation">
+          <div>
+            <p>ARPEGGIO IS A SITE THAT SHOWS TO YOU AN VARIETY OF ARTISTS AND THEIR ARTWORKS</p>
+          </div>
         </div>
       </main>
-    </HomeContainer >
+    </HomeContainer>
   )
 }
 
