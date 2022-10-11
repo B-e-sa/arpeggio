@@ -1,6 +1,8 @@
 const Artist = () => {
   return (
-    <div> ARTISTA</div>
+    <div>
+      
+    </div>
   )
 }
 

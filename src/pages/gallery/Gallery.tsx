@@ -1,6 +1,7 @@
 import GalleryContainer from './Gallery.style'
 import art from '../../utils/art.json'
 import { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Gallery = (): JSX.Element => {
 
@@ -16,14 +17,13 @@ const Gallery = (): JSX.Element => {
         artworkDateAndImage.push([
           art.artists[i].artWorks[c].completedIn,
           art.artists[i].artWorks[c].image,
-          art.artists[i].artWorks[c].description
+          art.artists[i].artWorks[c].description,
+          art.artists[i].artWorks[c].name
         ])
       }
     }
 
     setSortedByDateArtworks(artworkDateAndImage.sort())
-
-    console.log(sortedByDateArtworks[0][2])
 
   }, [])
 
@@ -37,20 +37,22 @@ const Gallery = (): JSX.Element => {
         {sortedByDateArtworks.map((item: string[], index: number) => {
           return (
             <div key={Math.random()} id='image-container'>
-              <div id='artwork-info'>
-                <div>
-                  <p>{sortedByDateArtworks ? sortedByDateArtworks[index][2]: ''}</p>
+              <Link to={`/artists/${sortedByDateArtworks[index][3]?.replace(' ', '_')}`}>
+                <div id='artwork-info'>
+                  <div>
+                    <p>{sortedByDateArtworks ? sortedByDateArtworks[index][2] : ''}</p>
+                  </div>
+                  <img src={sortedByDateArtworks[index][1]} draggable='false' alt="" />
                 </div>
-                <img src={sortedByDateArtworks[index][1]} draggable='false' alt="" />
-              </div>
+              </Link>
             </div>
           )
         })}
       </div>
       <div id='scroll-container'>
-        <span>{sortedByDateArtworks ? sortedByDateArtworks[0][0] : ''}</span>
+        <span>{sortedByDateArtworks && sortedByDateArtworks[0][0]}</span>
         <input type="range" onChange={handleChange} />
-        <span>{sortedByDateArtworks ? sortedByDateArtworks[sortedByDateArtworks.length - 1][0] : ''}</span>
+        <span>{sortedByDateArtworks && sortedByDateArtworks[sortedByDateArtworks.length - 1][0]}</span>
       </div>
     </GalleryContainer>
   )

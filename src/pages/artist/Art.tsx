@@ -8,7 +8,6 @@ const Artist = () => {
   return (
     <>
       <div> {artist.name} </div>
-      <Outlet />
     </>
   )
 }
