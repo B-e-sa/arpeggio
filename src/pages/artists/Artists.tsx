@@ -1,8 +1,8 @@
-const Artist = () => {
+import art from '../../utils/art.json'
+
+const Artist = (): JSX.Element => {
   return (
-    <div>
-      
-    </div>
+    <></>
   )
 }
 

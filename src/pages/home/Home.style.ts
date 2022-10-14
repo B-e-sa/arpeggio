@@ -8,16 +8,23 @@ const HomeContainer = styled.div`
 
     display: flex;
     width: 100vw;
-    height: 150vh;
+    height: 170vh;
 
     main {
         width: 100vw;
         height: 97vh;
     }
 
+    main > div {
+        display: flex;
+        flex-direction: column;
+
+        height: 100vh;
+    }
+
     #presentation {
         padding: 0 50px 0 50px;
-        height: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;

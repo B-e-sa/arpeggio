@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-const GalleryContainer = styled.div`
+interface IProps {
+    scrollPosition: number
+}
+
+const GalleryContainer = styled.div<IProps>`
 
     @import url('https://fonts.googleapis.com/css2?family=Alkalami&family=Open+Sans:wght@300&display=swap');
 
@@ -14,23 +18,25 @@ const GalleryContainer = styled.div`
 
     background-color: #d9d7d3 ;
 
-    input[type=range] {
+    #scroll {
+        position: relative;
         height: fit-content;
-        -webkit-appearance: none;
+        width: 160px;
         background-color: rgb(202, 200, 196);
         border-radius: 20px;
+        margin-left: 5px;
     }
 
-    input[type=range]::-webkit-slider-thumb {
-        -webkit-appearance: none;
+    #scroll > div {
+        position: relative;
         height: 4px;
         width: 40px;
         border-radius: 20px;
         background-color: rgb(144, 143, 138);
-    }
-
-    input[type=range]::-webkit-slider-runnable-track {
         
+        left: ${props => (props.scrollPosition) + "px"} ;
+
+        transition: left 0.1s linear
     }
 
     #scroll-container {
@@ -42,11 +48,9 @@ const GalleryContainer = styled.div`
 
         font-family: 'Noto Gujarati', serif;
 
-        
-
         color: #69665b;
         
-        font-size: 35pt;
+        font-size: 45pt;
     }
 
     #artwork-info {
@@ -57,7 +61,8 @@ const GalleryContainer = styled.div`
         position: relative;
         display: flex;
         align-items: center;
-        overflow: auto;
+        overflow-y: hidden;
+        overflow-x: auto;
         max-width: 100%;
     }
 
@@ -105,7 +110,7 @@ const GalleryContainer = styled.div`
     }
 
     #image-container:nth-child(even) {
-        height: 280px;
+        height: 300px;
     }
 
     img {

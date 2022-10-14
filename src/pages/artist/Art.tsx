@@ -1,13 +1,16 @@
 import React from 'react'
-import { Outlet, useParams } from 'react-router-dom'
+import { Outlet, Params, useParams } from 'react-router-dom'
 
-const Artist = () => {
+const Artist = (): JSX.Element => {
 
-  let artist = useParams()
+  let artist: Readonly<Params<string>> = useParams()
 
   return (
     <>
       <div> {artist.name} </div>
+      <div>
+
+      </div>
     </>
   )
 }
