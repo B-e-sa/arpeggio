@@ -1,7 +1,11 @@
-import GalleryContainer from './Gallery.style'
 import art from '../../utils/art.json'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
+import './gallery.sass'
+
+const handleSelected = () => {
+
+}
 
 const Gallery = (): JSX.Element => {
 
@@ -18,7 +22,6 @@ const Gallery = (): JSX.Element => {
         artworkDateAndImage.push([
           art.artists[i].artWorks[c].completedIn,
           art.artists[i].artWorks[c].image,
-          art.artists[i].artWorks[c].description,
           art.artists[i].artWorks[c].name
         ])
       }
@@ -40,12 +43,16 @@ const Gallery = (): JSX.Element => {
       setScrollMaxPosition(scrollX!.scrollWidth - scrollX!.clientWidth)
     }
 
-    const handleWheel = (e: WheelEvent) => {
-      if (e.deltaY !== 100) {
-        console.log('up')
-      } else {
-        console.log('down')
+    const handleWheel = (e: WheelEvent): number => {
+
+      if (e.deltaY === -100) {
+
+        return scrollX!.scrollLeft += 100
+
       }
+
+      return scrollX!.scrollLeft -= 100
+
     }
 
     document.addEventListener('load', handleLoad)
@@ -62,23 +69,17 @@ const Gallery = (): JSX.Element => {
 
 
   return (
-    <GalleryContainer scrollPosition={scrollPosition}>
+    <div id='gallery-container'>
       <div id='artwork-container'>
-        {sortedByDateArtworks.map((item: string[], index: number) => {
+        {sortedByDateArtworks.map((_item: string[], index: number) => {
           return (
             <div key={Math.random()} id='image-container'>
-              <Link to={`/artists/${sortedByDateArtworks[index][3]?.replaceAll(' ', '_')}`}>
-                <div id='artwork-info'>
-                  <div>
-                    <p>{sortedByDateArtworks ? sortedByDateArtworks[index][2] : ''}</p>
-                  </div>
-                  <img src={sortedByDateArtworks[index][1]} draggable='false' alt="" />
-                </div>
-              </Link>
+              <img onClick={handleSelected} src={sortedByDateArtworks[index][1]} draggable='false' alt="" />
             </div>
           )
         })}
       </div>
+
       <div id='scroll-container'>
         <span>{sortedByDateArtworks && sortedByDateArtworks[0][0]}</span>
         <div id='scroll'>
@@ -86,7 +87,8 @@ const Gallery = (): JSX.Element => {
         </div>
         <span>{sortedByDateArtworks && sortedByDateArtworks[sortedByDateArtworks.length - 1][0]}</span>
       </div>
-    </GalleryContainer>
+      <span> SCROLL TO EXPLORE </span>
+    </div>
   )
 }
 

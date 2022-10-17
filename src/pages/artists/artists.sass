@@ -1,0 +1,55 @@
+@use './src/sass/mixins'
+
+#artists-container
+
+    @include mixins.view-container
+    height: fit-content
+
+    background-color: #90b0bb
+
+    padding-top: 43px
+
+    img
+        object-fit: cover
+        margin: 6px
+
+        &:nth-child(1)
+            width: 250px
+            height: 310px
+
+        &:nth-child(2)
+            width: 220px
+            height: 270px
+            
+            position: absolute
+            left: -232px
+            top: 125px
+
+        &:nth-child(3)
+            width: 370px
+            height: 440px
+
+    .artist-container
+        display: flex
+        position: relative
+
+        p
+            font:
+                family: 'Montserrat'
+                size: 25pt
+
+            color: #f1e6ac
+
+            height: fit-content
+
+            margin:
+                right: 20%
+                left: 60px
+
+            width: 180px
+
+    #image-container
+        display: flex
+        flex-direction: column
+        position: relative
+        width: 350px

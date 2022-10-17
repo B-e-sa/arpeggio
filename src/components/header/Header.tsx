@@ -1,22 +1,12 @@
-import { useEffect, useState } from "react"
-import HeaderContainer from "./Header.style"
-import { Link, Outlet, useLocation, Location } from "react-router-dom"
+import { Link, useLocation, Location } from "react-router-dom"
+import './header.sass'
 
 const pageNavs: string[] = [
     'HOME', '/',
     'ARTISTS', '/artists',
-    'GALLERY', '/gallery'
+    'GALLERY', '/gallery',
+    'Arpeggio', '/'
 ]
-
-const navSpans: JSX.Element[] = []
-
-for (let i = 0; i < pageNavs.length - 1; i += 2) {
-    navSpans.push(
-        <span key={pageNavs[i]}>
-            <Link to={pageNavs[i + 1]} >{pageNavs[i]}</Link>
-        </span>
-    )
-}
 
 const Header = (): JSX.Element => {
 
@@ -26,13 +16,30 @@ const Header = (): JSX.Element => {
 
     const actualPage: string = getActualPage[1]
 
-    useEffect(() => {
-        
-    }, [])
+    const navSpans: JSX.Element[] = []
+
+    for (let i = 0; i < pageNavs.length - 1; i += 2) {
+        navSpans.push(
+            <span key={pageNavs[i]}>
+                <Link
+                    to={pageNavs[i + 1]}
+                    style={{
+                        color: actualPage === 'gallery' ?
+                            'black'
+                            :
+                            '#e0d9a5',
+                    }}
+                >{pageNavs[i]}</Link>
+            </span>
+        )
+    }
 
     return (
-        <HeaderContainer page={actualPage}>
-            <header>
+        <header>
+            <div
+                style={{
+                    borderBottom: `1px solid ${actualPage === 'gallery' ? 'black' : '#e0d9a5'}`
+                }}>
                 <nav>
                     {
                         navSpans.map((item: any) => {
@@ -40,9 +47,8 @@ const Header = (): JSX.Element => {
                         })
                     }
                 </nav>
-                <Outlet />
-            </header>
-        </HeaderContainer>
+            </div>
+        </header>
     )
 }
 

@@ -115,7 +115,7 @@
             ]
         },
         {
-            "nickName": "Salvador Dalí",
+            "nickName": "Dalí",
             "fullName": "Salvador Domingo Felipe Jacinto Dalí i Domènech",
             "wasBornIn": "5/11/1904/Spain",
             "diedIn": "1/23/1989/Spain",
@@ -298,7 +298,7 @@
                 },
                 {
                     "name": "Haystack at the End of Summer",
-                    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Claude_Monet_-_Stacks_of_Wheat_%28End_of_Summer%29_-_1985.1103_-_Art_Institute_of_Chicago.jpg",
+                    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Claude_Monet_- _Stacks_of_Wheat_%28End_of_Summer%29_-_1985.1103_-_Art_Institute_of_Chicago.jpg",
                     "completedIn": "1891",
                     "description": "In 1890 and 1891, Claude Monet painted another series of twenty-five canvases depicting Haystacks. These paintings capture haystacks after the harvest season from the surrounding farming fields in Giverny"
                 }
@@ -343,7 +343,7 @@
             ]
         },
         {
-            "nickName": "Peter Paul Rubens",
+            "nickName": "Paul Rubens",
             "fullName": "Peter Paul Rubens",
             "wasBornIn": "6/28/1577/Germany",
             "diedIn": "5/30/1640/Belgium",

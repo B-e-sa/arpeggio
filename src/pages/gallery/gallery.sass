@@ -1,0 +1,78 @@
+@use './src/sass/mixins'
+    
+@font-face
+    font-family: Montserrat
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap')
+
+#gallery-container
+    @include mixins.view-container
+
+    padding-top: 43px
+
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    background-color: #d9d7d3
+
+    #scroll
+        position: relative
+        height: fit-content
+        width: 160px
+        background-color: rgb(202, 200, 196)
+        border-radius: 20px
+        margin-left: 5px
+
+        div
+            position: relative
+
+            height: 4px
+            width: 40px
+
+            border-radius: 20px
+            background-color: rgb(144, 143, 138)
+
+            transition: left 0.1s linear
+
+        &-container
+            display: flex
+            align-items: center
+
+        &-container span
+            font:
+                family: 'Noto Gujarati', serif
+                size: 45pt
+
+            color: #69665b
+
+    #artwork-container
+        position: relative
+        display: flex
+        align-items: center
+        overflow-y: hidden
+        overflow-x: auto
+        max-width: 100%
+
+        &:hover img:not(:hover)
+            filter: blur(3px)
+
+    #image-container
+        height: 350px
+
+        margin-left: 25px
+
+        &:nth-child(even)
+            height: 300px
+
+        &:nth-child(even) img
+            height: 300px
+            width: 280px
+
+    img
+        width: 290px
+        height: 350px
+
+        object-fit: cover
+
+        transition: filter 0.4s

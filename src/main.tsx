@@ -8,7 +8,6 @@ import Artists from './pages/artists/Artists'
 import Artist from './pages/artist/Art'
 import Header from './components/header/Header'
 import Gallery from './pages/gallery/Gallery'
-import Loader from './components/loader/Loader'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -19,7 +18,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Route path='gallery' element={<Gallery />} />
         <Route path='artists' element={<Artists />} />
         <Route path="artists/:artName" element={<Artist />} />
-        <Route path="test" element={<Loader />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

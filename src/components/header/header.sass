@@ -1,0 +1,38 @@
+@use './src/sass/mixins'
+
+@font-face
+    font-family: Alkalami300
+    src: url('https://fonts.googleapis.com/css2?family=Alkalami&family=Open+Sans:wght@300&display=swap')
+
+@font-face
+    font-family: Alkalami
+    src: url('https://fonts.googleapis.com/css2?family=Alkalami&display=swap')
+
+header
+    position: absolute
+
+    width: 100%
+    display: flex
+    justify-content: center
+
+    z-index: 1
+
+    div
+        font-family: 'Open Sans', sans-serif
+        display: flex
+        width: 98vw
+        padding: 10px 0 10px 0
+
+    nav
+        span
+            &:not(:nth-child(1))
+                margin-left: 25px
+
+            &:nth-child(4)
+                position: absolute
+                font-family: 'Alkalami', serif
+                font-size: 20pt
+                margin-left: 30vw
+                top: 0px
+
+            

@@ -1,8 +1,63 @@
+import { useEffect, useState } from 'react'
 import art from '../../utils/art.json'
+import './artists.sass'
 
 const Artist = (): JSX.Element => {
+
+  const [artistAndPaintings, setArtistsAndPaintings] = useState([['']])
+
+  useEffect(() => {
+
+    const artist: any = []
+
+    for (let i = 0; i < art.artists.length; i++) {
+
+      /*
+      * for each artist, an paragraph with his name 
+      * will be pushed with an array after, that will be 
+      * used to push his artworks on the loop below
+      */
+      artist.push([<p>{art.artists[i].nickName.toUpperCase()}</p>, []])
+
+      // pushes 3 artist artworks to his respective array
+      for (let c = 0; c < art.artists[i].artWorks.length - 2; c++) {
+        artist[i][1].push(
+          <img
+            draggable="false"
+            src={art.artists[i].artWorks[c].image}
+            alt={art.artists[i].artWorks[c].name}
+          />
+        )
+      }
+
+    }
+
+    setArtistsAndPaintings(artist)
+
+  }, [])
+
   return (
-    <></>
+    <div id='artists-container'>
+      {
+        artistAndPaintings.map((item, index) => {
+          return (
+            <div className='artist-container'>
+
+              {
+                // artist name
+                item[0]
+              }
+              <div id='image-container'>
+                {
+                  // artist three artworks
+                  item[1]
+                }
+              </div>
+            </div>
+          )
+        })
+      }
+    </div>
   )
 }
 
