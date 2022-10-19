@@ -42,16 +42,9 @@ const Artist = (): JSX.Element => {
         artistAndPaintings.map((item, index) => {
           return (
             <div className='artist-container'>
-
-              {
-                // artist name
-                item[0]
-              }
+              {item[0]}
               <div id='image-container'>
-                {
-                  // artist three artworks
-                  item[1]
-                }
+                {item[1]}
               </div>
             </div>
           )

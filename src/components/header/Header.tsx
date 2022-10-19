@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Link, useLocation, Location } from "react-router-dom"
 import './header.sass'
 
@@ -9,6 +10,8 @@ const pageNavs: string[] = [
 ]
 
 const Header = (): JSX.Element => {
+
+    const [pageWasChanged, setPageWasChanged] = useState()
 
     const location: Location = useLocation()
     const getActualPage: string[] = location.pathname.split('/')
@@ -44,11 +47,9 @@ const Header = (): JSX.Element => {
                     borderBottom: `1px solid ${color}`
                 }}>
                 <nav>
-                    {
-                        navSpans.map((item: any) => {
-                            return item
-                        })
-                    }
+                    {navSpans.map((item: any) => {
+                        return item
+                    })}
                 </nav>
             </div>
         </header>
