@@ -1,18 +1,20 @@
+import { useEffect, useState } from 'react'
 import './home.sass'
 
 const Home = (): JSX.Element => {
   return (
     <main>
       <div id="welcome-container">
-        <h1>Arpeggio</h1>
+        <h1>Arppegio</h1>
         <div>
-          <p>WELCOME<br/> TO ARPEGGIO</p>
+          <p>WELCOME</p>
+          <p>TO <span>Arpeggio</span></p>
         </div>
       </div>
 
       <div id="presentation-container">
         <div>
-          <p>ARPEGGIO IS A SITE THAT SHOWS TO YOU AN VARIETY OF ARTISTS AND THEIR ARTWORKS</p>
+          <p>ARPEGGIO IS INTENDED TO SHOW YOU A WIDE VARIETY OF ARTISTS AND THEIR GREATEST WORKS</p>
         </div>
       </div>
     </main>

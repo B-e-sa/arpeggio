@@ -73,8 +73,9 @@ const Gallery = (): JSX.Element => {
       <div id='artwork-container'>
         {sortedByDateArtworks.map((_item: string[], index: number) => {
           return (
-            <div key={Math.random()} id='image-container'>
+            <div key={Math.random()} className='image-container'>
               <img onClick={handleSelected} src={sortedByDateArtworks[index][1]} draggable='false' alt="" />
+              <span>{sortedByDateArtworks[index][0]}</span>
             </div>
           )
         })}
@@ -83,11 +84,11 @@ const Gallery = (): JSX.Element => {
       <div id='scroll-container'>
         <span>{sortedByDateArtworks && sortedByDateArtworks[0][0]}</span>
         <div id='scroll'>
-          <div></div>
+          <div style={{ left: scrollPosition }}></div>
         </div>
         <span>{sortedByDateArtworks && sortedByDateArtworks[sortedByDateArtworks.length - 1][0]}</span>
       </div>
-      <span> SCROLL TO EXPLORE </span>
+      <p>SCROLL TO EXPLORE</p>
     </div>
   )
 }
