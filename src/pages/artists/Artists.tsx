@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import art from '../../utils/art.json'
 import './artists.sass'
 
@@ -29,27 +30,31 @@ const Artist = (): JSX.Element => {
           />
         )
       }
-
     }
 
     setArtistsAndPaintings(artist)
 
   }, [])
 
+  /* 
+  * there is a error on props in item[0] that says
+  * props doesn't exists on type string, but it exists
+  * on item objects
+  */
   return (
     <div id='artists-container'>
-      {
-        artistAndPaintings.map((item, index) => {
-          return (
-            <div className='artist-container'>
+      {artistAndPaintings.map((item, index) => {
+        return (
+          <div className='artist-container'>
+            <Link to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}>
               {item[0]}
-              <div id='image-container'>
-                {item[1]}
-              </div>
+            </Link>
+            <div id='image-container'>
+              {item[1]}
             </div>
-          )
-        })
-      }
+          </div>
+        )
+      })}
     </div>
   )
 }

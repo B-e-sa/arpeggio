@@ -7,6 +7,12 @@
     100%
         right: 0
 
+@keyframes emerge
+    0%
+        bottom: -100vh
+    100%
+        bottom: 0
+
 #gallery-container
     @include mixins.view-container
 
@@ -22,11 +28,14 @@
     background-color: #d9d7d3
 
     p
+        position: relative
         font:
             family: sans-serif
             size: 12pt
             weight: bold
         color: #8a8a8a
+        animation: emerge 0.5s
+            
 
     #artwork-container
         position: relative
@@ -38,7 +47,7 @@
         height: 375px
 
         transition: height 0.4s
-        animation: slide 1s
+        animation: slide 0.7s
 
         &:hover
             height: 500px
@@ -92,8 +101,10 @@
         transition: filter 0.4s, width 0.4s, height 0.4s, margin-top 0.4s
 
     #scroll-container
+        position: relative
         display: flex
         align-items: center
+        animation: emerge 0.5s
 
         #scroll
             position: relative
@@ -118,5 +129,4 @@
             font:
                 family: 'PT Serif', serif
                 size: 45pt
-
             color: #69665b

@@ -8,10 +8,9 @@ const Home = (): JSX.Element => {
         <h1>Arppegio</h1>
         <div>
           <p>WELCOME</p>
-          <p>TO <span>Arpeggio</span></p>
+          <p>TO <span><i>Arpeggio</i></span></p>
         </div>
       </div>
-
       <div id="presentation-container">
         <div>
           <p>ARPEGGIO IS INTENDED TO SHOW YOU A WIDE VARIETY OF ARTISTS AND THEIR GREATEST WORKS</p>

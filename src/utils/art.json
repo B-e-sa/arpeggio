@@ -5,6 +5,8 @@
             "fullName": "Vincent Willem van Gogh",
             "wasBornIn": "3/30/1853/Netherlands",
             "diedIn": "7/29/1890/France",
+            "portrait": "https://images.metmuseum.org/CRDImages/ep/original/DT1502_cropped2.jpg",
+            "description": "Vincent Willem van Gogh was a Dutch Post-Impressionist artist who emerged as one of the most famous figures in the history of Western art after his death. Van Gogh's landscapes, still lifes, portraits, and self-portraits are characterized by vibrant contrasts of complementary colors, expressive brushwork, and abstract, linear planes inspired by the Japanese prints he collected and admired. His innovations contributed to the foundations of modern art. Van Gogh's images often reflect personal symbolism, experiences, and emotions he discussed in correspondence with family and friends. He expressed a desire to communicate joy and comfort through his art and aspired to gather a community of like-minded artists in southern France. Van Gogh did not achieve commercial success in his lifetime and relied on financial support from his brother, Theo van Gogh. His life was shaped by severe depression and episodes of acute psychological distress. Van Gogh committed suicide at the age of 37",
             "artWorks": [
                 {
                     "name": "Starry Night",
@@ -43,6 +45,7 @@
             "fullName": "Pablo Diego José Francisco de Paula Juan Nepomuceno Crispín Crispiniano María Remedios de la Santísima Trinidad Ruiz Picasso",
             "wasBornIn": "10/25/1881/Spain",
             "diedIn": "4/8/1973/France",
+            "description": "",
             "artWorks": [
                 {
                     "name": "Guernica",
@@ -81,6 +84,7 @@
             "fullName": "Paul-Gustave Doré",
             "wasBornIn": "1/6/1832/France",
             "diedIn": "1/23/1883/France",
+            "description": "",
             "artWorks": [
                 {
                     "name": "La Siesta",
@@ -119,6 +123,7 @@
             "fullName": "Salvador Domingo Felipe Jacinto Dalí i Domènech",
             "wasBornIn": "5/11/1904/Spain",
             "diedIn": "1/23/1989/Spain",
+            "description": "",
             "artWorks": [
                 {
                     "name": "The Persistence of Memory",
@@ -157,6 +162,7 @@
             "fullName": "Edvard Daniel Jon Hans Einar Erling Munch",
             "wasBornIn": "",
             "diedIn": "",
+            "description": "",
             "artWorks": [
                 {
                     "name": "The Scream",
@@ -165,7 +171,7 @@
                     "description": "Munch recalled that he had been out for a walk at sunset when suddenly the setting sun's light turned the clouds “a blood red”. He sensed an “infinite scream passing through nature”"
                 },
                 {
-                    "name": "Vampire / Love and Pain",
+                    "name": "Love and Pain",
                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Edvard_Munch_-_Vampire_%281895%29_-_Google_Art_Project.jpg/1200px-Edvard_Munch_-_Vampire_%281895%29_-_Google_Art_Project.jpg",
                     "completedIn": "1893",
                     "description": "The painting depicts a man and woman embracing, with the woman appearing to be either kissing or biting the man on his neck"
@@ -195,6 +201,7 @@
             "fullName": "Johannes Vermeer",
             "wasBornIn": "",
             "diedIn": "",
+            "description": "",
             "artWorks": [
                 {
                     "name": "Girl with a Pearl Earring",
@@ -233,6 +240,7 @@
             "fullName": "Rembrandt Harmenszoon van Rijn",
             "wasBornIn": "7/15/1606/Netherlands",
             "diedIn": "10/4/1669/Netherlands",
+            "description": "",
             "artWorks": [
                 {
                     "name": "The Night Watch",
@@ -271,6 +279,7 @@
             "fullName": "Oscar-Claude Monet",
             "wasBornIn": "11/14/1840/France",
             "diedIn": "12/5/1926/France",
+            "description": "",
             "artWorks": [
                 {
                     "name": "Woman with Parasol",
@@ -309,6 +318,7 @@
             "fullName": "Michelangelo \"Caravaggio\" Merisi",
             "wasBornIn": "9/29/1571?/Italy",
             "diedIn": "7/18/1610/Italy",
+            "description": "",
             "artWorks": [
                 {
                     "name": "The Incredulity of Saint Thomas",
@@ -347,6 +357,7 @@
             "fullName": "Peter Paul Rubens",
             "wasBornIn": "6/28/1577/Germany",
             "diedIn": "5/30/1640/Belgium",
+            "description": "",
             "artWorks": [
                 {
                     "name": "The Massacre of the Innocents",

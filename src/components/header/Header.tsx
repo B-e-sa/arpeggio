@@ -18,11 +18,15 @@ const Header = (): JSX.Element => {
     const actualPage: string = getActualPage[1]
     const navSpans: JSX.Element[] = []
 
-    const color =
+    let color = 
         actualPage === 'gallery' ?
             'black'
             :
             '#e0d9a5'
+
+    if(getActualPage.length > 2) {
+        color = 'black'
+    }
 
     const handleClick = (): void => {
 

@@ -9,8 +9,9 @@
 #artists-container
 
     .artist-container:nth-child(1)
-        p
-            align-self: center
+        a
+            p
+                align-self: center
 
     @include mixins.view-container
     height: fit-content
@@ -47,21 +48,25 @@
         display: flex
         position: relative
 
-        p
-            animation: appear 1s
-            font:
-                family: 'Montserrat'
-                size: 25pt
-
-            color: #f1e6ac
-
+        a
+            width: fit-content
             height: fit-content
 
-            margin:
-                right: 380px
-                left: 60px
+            p
+                animation: appear 1s
+                font:
+                    family: 'Montserrat'
+                    size: 25pt
 
-            width: 180px
+                color: #f1e6ac
+
+                height: fit-content
+
+                margin:
+                    right: 380px
+                    left: 60px
+
+                width: 180px
 
     #image-container
         display: flex
