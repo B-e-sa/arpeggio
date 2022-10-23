@@ -9,7 +9,8 @@ interface IArtist {
   wasBornIn: string
   diedIn: string
   description: string
-  portrait?: string
+  portrait: string
+  movement: string
   artWorks: {
     name: string
     image: string
@@ -43,6 +44,7 @@ const capitalizeFirstLetter = (string: string): any => {
 const Artist = (): JSX.Element => {
 
   const [artist, setArtist] = useState<IArtist>()
+  const [leftContinerWasClosed, setLeftContainerWasClosed] = useState(false)
 
   const { artistName }: Readonly<Params<string>> = useParams()
 
@@ -58,39 +60,50 @@ const Artist = (): JSX.Element => {
 
   }, [])
 
+  const handleCloseLeftContainer = () => {
+
+    leftContinerWasClosed ?
+      setLeftContainerWasClosed(false)
+      :
+      setLeftContainerWasClosed(true)
+
+
+
+  }
+
   return (
     <div id='artist-container'>
-      <div id='artist-info-container'>
+      <div id='left-container' style={{}}>
+        <div id='header-container'>
+          <div>
+            <img src={artist?.portrait} alt={artist?.nickName} />
+            <p>{artist?.nickName.toUpperCase()}</p>
+          </div>
+          <button onClick={handleCloseLeftContainer}>x</button>
+        </div>
+        <div id='artist-name'>
+          <p><b>{artist?.nickName.toUpperCase()}</b></p>
+          <p><i>({artist?.fullName})</i></p>
+        </div>
         <div id='artist-info'>
           <div>
-            <h1>{artist?.nickName.toUpperCase()}</h1>
-            <button>X</button>
+            <p><b>MOVEMENT:</b> {artist?.movement.toUpperCase()}</p>
+            <p><b>BORN:</b> {
+              // slicing array last index (local of birth)
+              artist?.wasBornIn.split('/').slice(0, 3).join('/').toUpperCase()
+            }</p>
+            <p><b>DIED:</b> {
+              // slicing array last index (local of death)
+              artist?.diedIn.split('/').slice(0, 3).join('/').toUpperCase().toUpperCase()
+            }</p>
           </div>
-          <p>({artist?.fullName})</p>
-          <p>{artist?.wasBornIn}</p>
-          <p>{artist?.diedIn}</p>
           <p>{artist?.description}</p>
         </div>
-        <div id='artist-portrait' style={{
-          backgroundImage: `url('${artist?.portrait}')`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }}></div>
       </div>
-
-
-      {/*<div>
-        {artist?.artWorks.map((_item, index: number) => {
-          return (
-            <img
-              key={artist?.artWorks[index].name}
-              src={artist?.artWorks[index].image}
-              alt={artist?.artWorks[index].name}
-            />)
-        })}
-      </div>*/}
-    </div>
+      <div id='artist-portrait-container'>
+        <img id='artist-portrait' src={artist?.portrait} alt="" />
+      </div>
+    </div >
   )
 }
 

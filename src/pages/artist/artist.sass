@@ -1,51 +1,78 @@
 @use './src/sass/mixins'
+@use './src/sass/vars'
+
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap')
+
+$header-button-sizes: 40px
 
 #artist-container
+    display: flex
     width: 100vw
     height: 100vh
     background-color: #efe6ad
     padding-top: 39px
     padding-left: 1vw
+    font-family: vars.$almarai
 
-    #artist-info-container
+    #left-container
         display: flex
-        height: 100%
+        flex-direction: column
+        justify-content: space-between
+        padding:
+            top: 25px
+            bottom: 25px
+        width: 45vw
 
-        #artist-portrait
-            width: 60%
-            outline: 1px solid black
+    #header-container
+        font-size: 25pt
+        display: flex
+        justify-content: space-between
+
+        > div
+            display: flex
+            align-items: center
+
+        img
+            width: $header-button-sizes
+            height: $header-button-sizes
+            border-radius: 100%
+
+        button
+            cursor: pointer
+            margin-right: 75px
+            border-radius: 100%
+            background: none
+            border: 1px solid gray
+            padding-bottom: 2px 
+            width: $header-button-sizes
+            height: $header-button-sizes
+
+    #artist-name
+        font-size: 30pt
+        p:nth-child(2)
+            font:
+                size: 15pt
+            color: gray
 
     #artist-info
         display: flex
+        > div
+            align-self: flex-end
+        > p
+            font:
+                size: 10pt
+                family: 'PT Serif', serif
+            width: 345px
+        p:nth-child(1)
+            width: 225px
 
-        flex-direction: column
-        width: 40%
-        background-color: #efe6ad
-
-        div
-            display: flex
-            align-items: center
-            justify-content: space-between
-
-            h1
-                font:
-                    size: 30pt
-
-            button
-                border: 1px solid gray
-                background-color: #efe6ad
-                border-radius: 100%
-                width: 25px
-                height: 25px
-                cursor: pointer
-                margin-right: 15px
-
-            + p
-                font:
-                    size: 15pt
-                color: #767676
-
+    #artist-portrait-container
+        position: relative
+        > img
+            outline: 1px solid black
+            position: absolute
+            width: 54vw
+            height: calc(100vh - 39px)
     img
-        width: 150px
-        height: 250px
         object-fit: cover
