@@ -5,8 +5,7 @@ import './header.sass'
 const pageNavs: string[] = [
     'HOME', '/',
     'ARTISTS', '/artists',
-    'GALLERY', '/gallery',
-    'Arpeggio', '/'
+    'GALLERY', '/gallery'
 ]
 
 const Header = (): JSX.Element => {
@@ -55,6 +54,9 @@ const Header = (): JSX.Element => {
                         return item
                     })}
                 </nav>
+                <span>
+                    ARPEGGIO
+                </span>
             </div>
         </header>
     )

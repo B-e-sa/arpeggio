@@ -13,16 +13,25 @@ header
         width: 98vw
         padding: 10px 0 10px 0
 
+        > span:nth-last-child(1)
+            position: absolute
+            font-family: 'Alkalami', serif
+            font-size: 20pt
+            left: 45%
+            right: 50%
+            top: -2px
+
     nav
         span
             &:not(:nth-child(1))
                 margin-left: 25px
 
-            &:nth-child(4)
-                position: absolute
-                font-family: 'Alkalami', serif
-                font-size: 20pt
-                margin-left: 30vw
-                top: -2px
-
+@media screen and (max-width: 680px)
+    header
+        div
+            > span:nth-last-child(1)
+                display: none
+            display: flex
+            justify-content: center
+            align-items: center
                 

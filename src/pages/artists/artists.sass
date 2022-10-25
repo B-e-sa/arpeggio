@@ -1,34 +1,66 @@
 @use './src/sass/mixins'
 @use './src/sass/vars'
 
-@keyframes appear
-    0%
-        opacity: 0
-    100%
-        opacity: 1
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap')
 
 #artists-container
+    display: flex
+    position: relative
+    height: fit-content
 
     .artist-container:nth-child(1)
         a
             p
                 align-self: center
 
-    @include mixins.view-container
-    height: fit-content
+    #artwork-info-container
+        z-index: 2
+        width: fit-content
+        margin-right: 1vw
 
-    background-color: #90b0bb
+        > div
+            font-family: vars.$almarai
+            border-radius: 10px
+            background-color: rgba(117, 150, 161, 0.3)
+            border: 5px solid transparent
+            position: sticky
+            top: 0
 
-    padding-top: 43px
+        button
+            cursor: pointer
+            position: absolute
+            top: 10px
+            right: 1vw
+            width: 35px
+            height: 35px
+            border:
+                radius: 100%
+                color: transparent
+            transition: background-color 0.3s
+
+            &:hover
+                background-color: #dEdEdE
+
+        img
+            pointer-events: none
+            border-radius: 5px
+            width: 100%
+            align-self: flex-end
+            margin: 0
 
     img
+        cursor: pointer
         object-fit: cover
         margin: 6px
+        transition: filter 0.5s, transform 0.5s, border 0.5s
+
+        &:hover:not(:nth-child(3))
+            transform: scale(1.04)
+            z-index: 1
 
         &:nth-child(1)
             width: 250px
             height: 310px
-            animation: appear 0.5s
 
         &:nth-child(2)
             width: 220px
@@ -38,23 +70,31 @@
             left: -232px
             top: 125px
 
-            animation: appear 1s
-
         &:nth-child(3)
             width: 370px
             height: 440px
-            animation: appear 1.5s
+            &:hover
+                transform: scale(1.02)
+
+    @include mixins.view-container
+    height: fit-content
+
+    background-color: #90b0bb
+
+    padding-top: 43px
 
     .artist-container
         display: flex
         position: relative
 
         a
-            width: fit-content
+            width: 185px
             height: fit-content
+            margin:
+                right: 20vw
+                left: 60px
 
             p
-                animation: appear 1s
                 font:
                     family: 'Montserrat'
                     size: 25pt
@@ -63,14 +103,44 @@
 
                 height: fit-content
 
-                margin:
-                    right: 380px
-                    left: 60px
-
                 width: 180px
 
     #image-container
         display: flex
         flex-direction: column
         position: relative
-        width: 350px
+        width: fit-content
+
+@media screen and (max-width: 930px)
+    #artists-container
+        img
+            &:nth-child(1)
+                width: 230px
+                height: 290px
+
+            &:nth-child(2)
+                width: 200px
+                height: 250px
+
+                position: absolute
+                left: -212px
+                top: 105px
+
+            &:nth-child(3)
+                width: 280px
+                height: 350px
+        .artist-container
+            a
+                margin-right: 10px
+
+@media screen and (max-width: 725px)
+    #artists-container
+        justify-content: center
+        .artist-container
+            flex-direction: column
+            img
+                width: 250px
+                &:nth-child(2)
+                    position: relative
+                    top: 0
+                    left: 0
