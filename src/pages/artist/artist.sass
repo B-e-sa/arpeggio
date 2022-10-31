@@ -4,14 +4,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap')
 
-$header-button-sizes: 40px
+@mixin header-buttons
+    width: 40px
+    height: 40px
 
 #artist-container
+    margin-top: -39px
     padding-top: 39px
     display: flex
     width: 100vw
     height: 100vh
-    background-color: #efe6ad
+    background-color: vars.$font-color
     padding-left: 1vw
     font-family: vars.$almarai
 
@@ -34,19 +37,31 @@ $header-button-sizes: 40px
             align-items: center
 
         img
-            width: $header-button-sizes
-            height: $header-button-sizes
+            @include header-buttons
             border-radius: 100%
 
         button
             cursor: pointer
-            margin-right: 75px
+            margin-right: 25px
             border-radius: 100%
             background: none
             border: 1px solid gray
             padding-bottom: 2px
-            width: $header-button-sizes
-            height: $header-button-sizes
+            @include header-buttons
+
+    #artist-artworks
+        display: flex
+        flex-direction: column
+        align-items: center
+        overflow-x: scroll
+        > div
+            width: 90%
+            display: flex
+            overflow-x: scroll
+            img:not(:nth-last-child(0))
+                margin-left: 3px
+        p
+            text-align: center
 
     #artist-name
         font-size: 30pt
@@ -57,15 +72,20 @@ $header-button-sizes: 40px
 
     #artist-info
         display: flex
+        padding-right: 25px
         > div
             align-self: flex-end
         > p
             font:
-                size: 10pt
+                size: 9pt
                 family: 'PT Serif', serif
-            width: 35vw
-        p:nth-child(1)
-            width: 225px
+            width: 32.5vw
+        p
+            &:nth-child(1)
+                width: 225px
+
+            &:not(:nth-child(1))
+                width: fit-content
 
     #artist-portrait-container
         position: relative

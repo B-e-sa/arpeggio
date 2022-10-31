@@ -4,6 +4,7 @@
 
 main
     @include mixins.view-container
+    margin-top: -39px
     height: 200vh
     background:
         position: center
@@ -12,25 +13,24 @@ main
         size: cover
 
     #welcome-container
-        display: flex
-        flex-direction: column
         height: 100vh
 
         h1
             font:
                 family: vars.$alkalami
                 size: 22vw
-
             color: vars.$font-color
             margin-left: 20px
 
         div
             height: 42%
-            display: flex
-            flex-direction: column
-            align-self: flex-end
             margin-right: 45px
             text-align: right
+
+            p
+                color: vars.$font-color
+                font:
+                    size: 30pt
 
             p:nth-child(2)
                 span
@@ -46,11 +46,23 @@ main
             &:nth-child(1)
                 text-align: center
                 margin-top: 150px
+                color: vars.$font-color
 
-    p
-        font:
-            family: 'Open Sans', sans-serif
-            size: 4vw
-        color: vars.$font-color
-        align-self: flex-end
-        max-width: 100%
+@media screen and (max-width: 580px)
+    main
+        display: flex
+        flex-direction: column
+        justify-content: space-evenly
+        height: 100vh
+        h1
+            padding-top: 25px
+        #welcome-container
+            height: fit-content
+            > div
+                
+                
+                margin: 0
+                text-align: center
+                p
+                    font-size: 25pt
+                

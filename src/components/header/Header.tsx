@@ -17,18 +17,14 @@ const Header = (): JSX.Element => {
     const actualPage: string = getActualPage[1]
     const navSpans: JSX.Element[] = []
 
-    let color = 
-        actualPage === 'gallery' ?
-            'black'
-            :
-            '#e0d9a5'
+    let color = ''
 
-    if(getActualPage.length > 2) {
+    // if page has more than just one slash, like "/artist/:name"
+    // or it is the gallery
+    if (getActualPage.length > 2 || actualPage === 'gallery') {
         color = 'black'
-    }
-
-    const handleClick = (): void => {
-
+    } else {
+        color = '#e0d9a5'
     }
 
     for (let i = 0; i < pageNavs.length - 1; i += 2) {
@@ -37,9 +33,8 @@ const Header = (): JSX.Element => {
                 <Link
                     to={pageNavs[i + 1]}
                     style={{ color: color }}
-                    onClick={handleClick}
-                >{pageNavs[i]}</Link>
-            </span>
+                > {pageNavs[i]}</Link>
+            </span >
         )
     }
 
@@ -47,14 +42,17 @@ const Header = (): JSX.Element => {
         <header>
             <div
                 style={{
-                    borderBottom: `1px solid ${color}`
+                    borderBottom: `1px solid ${color}`,
+                    backgroundColor: actualPage === 'artists' && getActualPage.length === 2 ? '#90b0bb' : 'transparent',
                 }}>
                 <nav>
                     {navSpans.map((item: any) => {
                         return item
                     })}
                 </nav>
-                <span>
+                <span style={{
+                    color: `${color}`
+                }}>
                     ARPEGGIO
                 </span>
             </div>

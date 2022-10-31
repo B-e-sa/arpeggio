@@ -1,13 +1,15 @@
 @use './src/sass/mixins'
+@use './src/sass/vars'
 
 header
-    position: absolute
+    position: sticky
+    top: 0
     width: 100%
     display: flex
     justify-content: center
     z-index: 1
 
-    div
+    > div
         font-family: 'Open Sans', sans-serif
         display: flex
         width: 98vw
@@ -15,8 +17,10 @@ header
 
         > span:nth-last-child(1)
             position: absolute
-            font-family: 'Alkalami', serif
-            font-size: 20pt
+            font:
+                family: 'Alkalami', serif
+                size: 20pt
+            color: vars.$font-color
             left: 45%
             right: 50%
             top: -2px
@@ -26,12 +30,9 @@ header
             &:not(:nth-child(1))
                 margin-left: 25px
 
-@media screen and (max-width: 680px)
+@media screen and (max-width: 760px)
     header
-        div
+        > div
+            justify-content: center
             > span:nth-last-child(1)
                 display: none
-            display: flex
-            justify-content: center
-            align-items: center
-                

@@ -67,8 +67,6 @@ const Artist = (): JSX.Element => {
       :
       setLeftContainerWasClosed(true)
 
-
-
   }
 
   return (
@@ -80,6 +78,21 @@ const Artist = (): JSX.Element => {
             <p>{artist?.nickName.toUpperCase()}</p>
           </div>
           <button onClick={handleCloseLeftContainer}>x</button>
+        </div>
+        <div id='artist-artworks'>
+          <p><b>ARTWORKS</b></p>
+          <div>
+            {artist?.artWorks.map((item: any, index: number) => {
+              return (
+                <img
+                  width='122px'
+                  height='150px'
+                  src={artist?.artWorks[index].image}
+                  alt=""
+                />
+              )
+            })}
+          </div>
         </div>
         <div id='artist-name'>
           <p><b>{artist?.nickName.toUpperCase()}</b></p>

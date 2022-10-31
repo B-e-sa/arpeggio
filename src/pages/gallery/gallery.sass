@@ -17,7 +17,7 @@
 #gallery-container
     @include mixins.view-container
 
-    padding-top: 43px
+    margin-top: -39px
 
     overflow: hidden
 
@@ -106,6 +106,14 @@
         align-items: center
         animation: emerge 0.5s
 
+        input
+            position: relative
+            &:nth-child(1)
+                transform: rotate(-90deg)
+
+            &:nth-last-child(1)
+                transform: rotate(90deg)
+
         #scroll
             position: relative
             height: fit-content
@@ -114,7 +122,7 @@
             border-radius: 20px
             margin-left: 5px
 
-            div
+            > div
                 position: relative
 
                 height: 4px
@@ -131,4 +139,26 @@
                 size: 45pt
             color: #69665b
 
-@media screen and ( max-width: 425px)
+@media screen and ( max-width: 690px)
+    #gallery-container
+        #artwork-container
+            &:hover
+                img:hover
+                    width: 520px
+                    height: 370px
+                    margin-top: -55px
+
+            &:hover
+                img:hover
+                    ~ span
+                        font-size: 65pt
+
+        #scroll-container
+            input
+                top: 45px
+                &:nth-child(1)
+                    left: 45px
+                &:nth-last-child(1) 
+                    left: -45px
+            span
+                font-size: 32pt

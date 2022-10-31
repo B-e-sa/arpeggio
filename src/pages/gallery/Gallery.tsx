@@ -3,15 +3,12 @@ import { useEffect, useState } from 'react'
 
 import './gallery.sass'
 
-const handleSelected = () => {
-
-}
-
 const Gallery = (): JSX.Element => {
 
   const [sortedByDateArtworks, setSortedByDateArtworks] = useState([['']])
-  const [scrollPosition, setScrollPosition] = useState(0)
   const [scrollMaxPosition, setScrollMaxPosition] = useState(0)
+  const [scrollTumb, setScrollTumb]: any = useState()
+  const [artworkElement, setArtworkElement]: any = useState()
 
   useEffect(() => {
 
@@ -35,38 +32,51 @@ const Gallery = (): JSX.Element => {
 
     const scrollX: HTMLElement | null = document.getElementById('artwork-container')
 
-    const handleScroll = (): void => {
-      setScrollPosition(scrollX!.scrollLeft / 117)
-    }
+    const scrollTumb: HTMLElement | null = document.getElementById('scroll-tumb')
+
+    setArtworkElement(scrollX)
+    setScrollTumb(scrollTumb)
 
     const handleLoad = (): void => {
       setScrollMaxPosition(scrollX!.scrollWidth - scrollX!.clientWidth)
     }
 
-    const handleWheel = (e: WheelEvent): number => {
+    const handleWheel = (e: WheelEvent): any => {
 
       if (e.deltaY === -100) {
 
-        return scrollX!.scrollLeft += 100
+        return (
+          scrollX!.scrollLeft += 350,
+          console.log(scrollTumb)
+        )
 
       }
 
-      return scrollX!.scrollLeft -= 100
+      return scrollX!.scrollLeft -= 350
 
     }
 
     document.addEventListener('load', handleLoad)
     document.addEventListener('wheel', handleWheel)
-    scrollX?.addEventListener('scroll', handleScroll)
 
     return () => {
       document.removeEventListener('load', handleLoad)
       document.removeEventListener('wheel', handleWheel)
-      scrollX?.removeEventListener('scroll', handleScroll)
     }
 
   }, [])
 
+  const handleArrowLeftClick = (): void => {
+    artworkElement.scrollLeft -= 350
+
+    scrollTumb.style.left = `${artworkElement.scrollLeft / 126}px`
+  }
+
+  const handleArrowRightClick = (): void => {
+    artworkElement.scrollLeft += 350
+    scrollTumb.style.left = `350px`
+    scrollTumb.style.left = `${artworkElement.scrollLeft / 126}px`
+  }
 
   return (
     <div id='gallery-container'>
@@ -74,21 +84,40 @@ const Gallery = (): JSX.Element => {
         {sortedByDateArtworks.map((_item: string[], index: number) => {
           return (
             <div key={Math.random()} className='image-container'>
-              <img onClick={handleSelected} src={sortedByDateArtworks[index][1]} draggable='false' alt="" />
+              <img
+                src={sortedByDateArtworks[index][1]}
+                draggable='false'
+                alt=""
+              />
               <span>{sortedByDateArtworks[index][0]}</span>
             </div>
           )
         })}
       </div>
-
       <div id='scroll-container'>
+        <input
+          type="image"
+          src="../../src/assets/arrow.svg"
+          alt="left-arrow"
+          width="35px"
+          height="35px"
+          onClick={handleArrowLeftClick}
+        />
         <span>{sortedByDateArtworks && sortedByDateArtworks[0][0]}</span>
         <div id='scroll'>
-          <div style={{ left: scrollPosition }}></div>
+          <div id='scroll-tumb'></div>
         </div>
         <span>{sortedByDateArtworks && sortedByDateArtworks[sortedByDateArtworks.length - 1][0]}</span>
+        <input
+          type="image"
+          src="../../src/assets/arrow.svg"
+          alt="rigth-arrow"
+          width="35px"
+          height="35px"
+          onClick={handleArrowRightClick}
+        />
       </div>
-      <p>SCROLL TO EXPLORE</p>
+      <p>CLICK/SCROLL TO EXPLORE</p>
     </div>
   )
 }

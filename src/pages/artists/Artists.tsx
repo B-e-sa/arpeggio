@@ -1,27 +1,18 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import art from '../../utils/art.json'
+import menu from '../../assets/menu.svg'
 import './artists.sass'
+import Menu from '../../components/artists/menu/Menu'
+import ArtInfo from '../../components/artists/ArtInfo'
 
 const Artist = (): JSX.Element => {
 
   const [artistAndPaintings, setArtistsAndPaintings] = useState([['']])
-  const [isDesktop, setIsDesktop] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [artInfo, setArtInfo] = useState([''])
 
   useEffect(() => {
-
-    /* 
-    * Ts doesn't ship with type declarations for 
-    * the experimental Navigator.userAgentData
-    * property by default, so it is marked as an error
-    * (but it exists)
-    */
-    const ua: boolean = navigator.userAgentData.mobile;
-
-    if (!ua) {
-      setIsDesktop(true)
-    }
 
     const artist: any = []
 
@@ -32,7 +23,9 @@ const Artist = (): JSX.Element => {
       * will be pushed with an array after, that will be 
       * used to push his artworks on the loop below
       */
-      artist.push([<p>{art.artists[i].nickName.toUpperCase()}</p>, []])
+      artist.push([
+        <p>{art.artists[i].nickName.toUpperCase()}</p>, []
+      ])
 
       // pushes 3 artist artworks to his respective array
       for (let c = 0; c < art.artists[i].artWorks.length - 2; c++) {
@@ -66,35 +59,55 @@ const Artist = (): JSX.Element => {
     }
   }
 
+  const handleMenuClick = (): void => {
+    isMenuOpen ?
+      setIsMenuOpen(false)
+      :
+      setIsMenuOpen(true)
+  }
+
   /* 
   * there is a error on props in item[0] that says
   * props doesn't exists on type string, but it exists
   * on item objects
   */
   return (
-    <div id='artists-container'>
+    <div id='artists-container' style={{
+      height: artInfo.length !== 1 ? '100vh' : 'fit-content'
+    }}>
+      <button
+        id='artists-button'
+        onClick={handleMenuClick}
+      ></button>
+      {isMenuOpen && < Menu props={artistAndPaintings} />}
       <div>
-        {artistAndPaintings.map((item: string[], _index: number) => {
-          return (
-            <div className='artist-container'>
-              <Link to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}>
-                {item[0]}
-              </Link>
-              <div id='image-container'>
-                {item[1]}
+        {artInfo.length === 1 &&
+          artistAndPaintings.map((item: string[]) => {
+            return (
+              <div id={item[0].props?.children.replaceAll(' ', '_')} className='artist-container'>
+                <Link to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}>
+                  {item[0]}
+                </Link>
+                <div id='image-container'>
+                  {item[1]}
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })
+        }
       </div>
       {artInfo.length !== 1 &&
         <div id='artwork-info-container'>
-          <div>
-            <img src={artInfo?.[0]} alt={artInfo?.[1]} />
-            <button onClick={() => setArtInfo([''])}> X </button>
-            <p><b>NAME:</b>{artInfo?.[1]}</p>
-            <p><b>DATE: </b>{artInfo[2]?.toUpperCase()}</p>
-            <p>{artInfo?.[3]}</p>
+          <button onClick={() => setArtInfo([''])}>X</button>
+          <div id='artwork-image'>
+            <img src={artInfo?.[0]} alt="" />
+          </div>
+          <div id='artwork-info'>
+            <div>
+              <p><b>NAME:</b>{artInfo?.[1]}</p>
+              <p><b>DATE: </b>{artInfo[2]?.toUpperCase()}</p>
+            </div>
+            <p id='artwork-description'>{artInfo?.[3]}</p>
           </div>
         </div>
       }

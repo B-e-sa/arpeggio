@@ -1,0 +1,42 @@
+@use '../../../sass/vars'
+@use '../../../sass/mixins'
+#line-container
+    width: fit-content
+    height: fit-content
+    position: sticky
+    top: 100px
+    z-index: 1
+
+    #names-container
+        font-family: vars.$almarai
+        position: absolute
+        list-style-type: none
+        left: -20px
+
+        li
+            display: flex
+            align-items: center
+            height: 20px
+            border-left: 1px solid vars.$font-color
+
+            &::before
+                font-size: 45pt
+                position: relative
+                content: "•"
+                left: -10px
+                bottom: 12px
+
+            &:not(:nth-last-child(1))
+                padding-bottom: 40px
+
+            a
+                width: fit-content
+                color: vars.$font-color
+
+            button
+                position: absolute
+                right: -7.5px
+                font-size: 25pt
+                background-color: transparent
+                border: none
+                color: #e7db8b

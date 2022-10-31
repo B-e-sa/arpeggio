@@ -8,7 +8,7 @@ const Home = (): JSX.Element => {
         <h1>Arppegio</h1>
         <div>
           <p>WELCOME</p>
-          <p>TO <span><i>Arpeggio</i></span></p>
+          <p>TO <span><i>ARPEGGIO</i></span></p>
         </div>
       </div>
       <div id="presentation-container">
