@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Link, useLocation, Location } from "react-router-dom"
 import './header.sass'
 
@@ -9,8 +8,6 @@ const pageNavs: string[] = [
 ]
 
 const Header = (): JSX.Element => {
-
-    const [pageWasChanged, setPageWasChanged] = useState()
 
     const location: Location = useLocation()
     const getActualPage: string[] = location.pathname.split('/')
@@ -50,10 +47,12 @@ const Header = (): JSX.Element => {
                         return item
                     })}
                 </nav>
-                <span style={{
-                    color: `${color}`
-                }}>
-                    ARPEGGIO
+                <span>
+                    <Link
+                        to='/'
+                        style={{ color: color }}>
+                        ARPEGGIO
+                    </Link>
                 </span>
             </div>
         </header>

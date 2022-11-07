@@ -129,8 +129,8 @@
             "wasBornIn": "5/11/1904/Spain",
             "diedIn": "1/23/1989/Spain",
             "movement": "Surrealism",
-            "portrait": "",
-            "description": "",
+            "portrait": "https://i.pinimg.com/originals/3b/48/01/3b4801afde02f76f9b6a9648dbdf6b3f.jpg",
+            "description": "Salvador Domingo Dalí was a Spanish renowned for his technical skill, precise draftsmanship, and the striking and bizarre images in his work. Dalí received his formal education in fine arts in Madrid. Influenced by Impressionism and the Renaissance masters from a young age he became increasingly attracted to Cubism and avant-garde movements. He moved closer to Surrealism in the late 1920s and joined the Surrealist group in 1929, soon becoming one of its leading exponents. His best-known work, The Persistence of Memory, was completed in August 1931, and is one of the most famous Surrealist paintings. based on his interest in classicism, mysticism, and recent scientific developments. Dalí's artistic repertoire included painting, graphic arts, film, sculpture, design and photography, at times in collaboration with other artists. He also wrote fiction, poetry, autobiography, essays and criticism. Major themes in his work include dreams, the subconscious, sexuality, religion, science and his closest personal relationships.",
             "artWorks": [
                 {
                     "name": "The Persistence of Memory",
@@ -170,7 +170,7 @@
             "wasBornIn": "",
             "diedIn": "",
             "movement": "Expressionism",
-            "portrait": "",
+            "portrait": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Edvard_Munch_-_Self-Portrait_-_Google_Art_Project_%28533070%29.jpg",
             "description": "",
             "artWorks": [
                 {
@@ -252,7 +252,7 @@
             "wasBornIn": "7/15/1606/Netherlands",
             "diedIn": "10/4/1669/Netherlands",
             "movement": "Baroque",
-            "portrait": "",
+            "portrait": "https://upload.wikimedia.org/wikipedia/commons/5/55/Rembrandt_Self-Portrait_%28Royal_Collection%29.jpg",
             "description": "",
             "artWorks": [
                 {
@@ -293,7 +293,7 @@
             "wasBornIn": "11/14/1840/France",
             "diedIn": "12/5/1926/France",
             "movement": "Naturalism",
-            "portrait": "",
+            "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Autoportret_Claude_Monet.jpg/1623px-Autoportret_Claude_Monet.jpg",
             "description": "",
             "artWorks": [
                 {
@@ -375,7 +375,7 @@
             "wasBornIn": "6/28/1577/Germany",
             "diedIn": "5/30/1640/Belgium",
             "movement": "Baroque",
-            "portrait": "",
+            "portrait": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Peter_Paul_Rubens_-_Self-Portrait_-_WGA20380.jpg",
             "description": "",
             "artWorks": [
                 {

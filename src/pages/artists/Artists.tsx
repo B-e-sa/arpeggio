@@ -5,42 +5,22 @@ import menu from '../../assets/menu.svg'
 import './artists.sass'
 import Menu from '../../components/artists/menu/Menu'
 import ArtInfo from '../../components/artists/ArtInfo'
+import artistsAndPaintings from '../../utils/getArtistAndPaintings'
+import ImageMagnifier from '../../utils/ImageMagnifier'
 
 const Artist = (): JSX.Element => {
 
-  const [artistAndPaintings, setArtistsAndPaintings] = useState([['']])
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [artInfo, setArtInfo] = useState([''])
+  const [scrollLastPosition, setScrollLastPosition] = useState(0)
 
   useEffect(() => {
 
-    const artist: any = []
+    const getScrollLastPosition: number = Number(sessionStorage.getItem('scrollLastPosition'))
 
-    for (let i = 0; i < art.artists.length; i++) {
+    setScrollLastPosition(getScrollLastPosition)
 
-      /*
-      * for each artist, an paragraph with his name 
-      * will be pushed with an array after, that will be 
-      * used to push his artworks on the loop below
-      */
-      artist.push([
-        <p>{art.artists[i].nickName.toUpperCase()}</p>, []
-      ])
-
-      // pushes 3 artist artworks to his respective array
-      for (let c = 0; c < art.artists[i].artWorks.length - 2; c++) {
-        artist[i][1].push(
-          <img
-            onClick={handleImageClick}
-            draggable="false"
-            src={art.artists[i].artWorks[c].image}
-            alt={art.artists[i].artWorks[c].name}
-          />
-        )
-      }
-    }
-
-    setArtistsAndPaintings(artist)
+    document.documentElement.scrollTop = scrollLastPosition
 
   }, [])
 
@@ -66,6 +46,8 @@ const Artist = (): JSX.Element => {
       setIsMenuOpen(true)
   }
 
+  const artistAndPaintings = artistsAndPaintings(handleImageClick)
+
   /* 
   * there is a error on props in item[0] that says
   * props doesn't exists on type string, but it exists
@@ -73,19 +55,23 @@ const Artist = (): JSX.Element => {
   */
   return (
     <div id='artists-container' style={{
-      height: artInfo.length !== 1 ? '100vh' : 'fit-content'
+      height: artInfo.length !== 1 ? '100vh' : 'fit-content',
     }}>
       <button
+        style={isMenuOpen ? { transform: 'rotate(90deg)' } : {}}
         id='artists-button'
         onClick={handleMenuClick}
       ></button>
       {isMenuOpen && < Menu props={artistAndPaintings} />}
       <div>
         {artInfo.length === 1 &&
-          artistAndPaintings.map((item: string[]) => {
+          artistAndPaintings.map((item: any[]) => {
             return (
               <div id={item[0].props?.children.replaceAll(' ', '_')} className='artist-container'>
-                <Link to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}>
+                <Link
+                  to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}
+                  onClick={() => sessionStorage.setItem('scrollLastPosition', JSON.stringify(document.documentElement.scrollTop))}
+                >
                   {item[0]}
                 </Link>
                 <div id='image-container'>

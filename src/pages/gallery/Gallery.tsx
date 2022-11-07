@@ -1,32 +1,15 @@
-import art from '../../utils/art.json'
 import { useEffect, useState } from 'react'
-
+import getSortedArtworksByDate from '../../utils/getSortedArtworksByArtworks'
+import ImageMagnifier from '../../utils/ImageMagnifier'
 import './gallery.sass'
+
+const sortedArtworks = getSortedArtworksByDate()
 
 const Gallery = (): JSX.Element => {
 
-  const [sortedByDateArtworks, setSortedByDateArtworks] = useState([['']])
   const [scrollMaxPosition, setScrollMaxPosition] = useState(0)
   const [scrollTumb, setScrollTumb]: any = useState()
   const [artworkElement, setArtworkElement]: any = useState()
-
-  useEffect(() => {
-
-    const artworkDateAndImage: string[][] = []
-
-    for (let i = 0; i < art.artists.length; i++) {
-      for (let c = 0; c < art.artists[i].artWorks.length; c++) {
-        artworkDateAndImage.push([
-          art.artists[i].artWorks[c].completedIn,
-          art.artists[i].artWorks[c].image,
-          art.artists[i].artWorks[c].name
-        ])
-      }
-    }
-
-    setSortedByDateArtworks(artworkDateAndImage.sort())
-
-  }, [])
 
   useEffect(() => {
 
@@ -45,10 +28,7 @@ const Gallery = (): JSX.Element => {
 
       if (e.deltaY === -100) {
 
-        return (
-          scrollX!.scrollLeft += 350,
-          console.log(scrollTumb)
-        )
+        return scrollX!.scrollLeft += 350, setScrollMaxPosition(scrollMaxPosition + 10)
 
       }
 
@@ -68,28 +48,29 @@ const Gallery = (): JSX.Element => {
 
   const handleArrowLeftClick = (): void => {
     artworkElement.scrollLeft -= 350
-
-    scrollTumb.style.left = `${artworkElement.scrollLeft / 126}px`
+    scrollTumb.style.left = `${artworkElement.scrollLeft / 119}px`
   }
 
   const handleArrowRightClick = (): void => {
     artworkElement.scrollLeft += 350
-    scrollTumb.style.left = `350px`
-    scrollTumb.style.left = `${artworkElement.scrollLeft / 126}px`
+    scrollTumb.style.left = `${artworkElement.scrollLeft / 119}px`
   }
 
   return (
     <div id='gallery-container'>
       <div id='artwork-container'>
-        {sortedByDateArtworks.map((_item: string[], index: number) => {
+        {sortedArtworks.map((_item: string[], index: number) => {
           return (
             <div key={Math.random()} className='image-container'>
-              <img
-                src={sortedByDateArtworks[index][1]}
+              
+              <ImageMagnifier width='200px' src={sortedArtworks[index][1]}/>
+              
+              {/*<img
+                src={sortedArtworks[index][1]}
                 draggable='false'
                 alt=""
               />
-              <span>{sortedByDateArtworks[index][0]}</span>
+              */}<span>{sortedArtworks[index][0]}</span>
             </div>
           )
         })}
@@ -103,11 +84,12 @@ const Gallery = (): JSX.Element => {
           height="35px"
           onClick={handleArrowLeftClick}
         />
-        <span>{sortedByDateArtworks && sortedByDateArtworks[0][0]}</span>
+        <span>{sortedArtworks && sortedArtworks[0][0]}</span>
         <div id='scroll'>
-          <div id='scroll-tumb'></div>
+          <div id='scroll-tumb' style={{  }}></div>
+          <input type="range" min={0} max={100} value={scrollMaxPosition} />
         </div>
-        <span>{sortedByDateArtworks && sortedByDateArtworks[sortedByDateArtworks.length - 1][0]}</span>
+        <span>{sortedArtworks && sortedArtworks[sortedArtworks.length - 1][0]}</span>
         <input
           type="image"
           src="../../src/assets/arrow.svg"

@@ -1,5 +1,18 @@
 @use '../../../sass/vars'
 @use '../../../sass/mixins'
+
+@keyframes fall
+    0%
+        top: -100vh
+    100%
+        top: 0
+
+@keyframes left-appear
+    0%
+        left: -50vw
+    100%
+        left: -20px
+
 #line-container
     width: fit-content
     height: fit-content
@@ -14,15 +27,18 @@
         left: -20px
 
         li
+            position: relative
             display: flex
             align-items: center
             height: 20px
+            animation: left-appear 0.15s
             border-left: 1px solid vars.$font-color
 
             &::before
                 font-size: 45pt
                 position: relative
                 content: "•"
+                color: #f0e392
                 left: -10px
                 bottom: 12px
 

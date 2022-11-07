@@ -21,17 +21,17 @@ interface IArtist {
 
 const capitalizeFirstLetter = (string: string): any => {
 
-  const spaceIndex = string.search(' ')
+  const spaceCharacterIndex = string.search(' ')
 
   /*
   * the page will render an artist by searching his nickname with
   * an uppercase first letter, so if an artist has two names,
   * they will be uppercased
   */
-  if (spaceIndex !== -1) {
+  if (spaceCharacterIndex !== -1) {
     return (
       string
-        .replace(string[spaceIndex + 1], string[spaceIndex + 1].toUpperCase())
+        .replace(string[spaceCharacterIndex + 1], string[spaceCharacterIndex + 1].toUpperCase())
         .replace(string[0], string[0].toUpperCase())
     )
     // else, just uppercase the first letter

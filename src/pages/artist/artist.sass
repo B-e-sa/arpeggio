@@ -55,11 +55,16 @@
         align-items: center
         overflow-x: scroll
         > div
+            height: fit-content
             width: 90%
             display: flex
             overflow-x: scroll
-            img:not(:nth-last-child(0))
-                margin-left: 3px
+
+            img
+                width: 122px
+                height: 150px
+                &:not(:nth-last-child(0))
+                    margin-left: 3px
         p
             text-align: center
 

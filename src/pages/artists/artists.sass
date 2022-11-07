@@ -6,6 +6,7 @@
 #artists-container
 
     #artists-button
+        transition: transform 0.25s
         z-index: 2
         cursor: pointer
         border: none
@@ -33,14 +34,9 @@
             p
                 align-self: center
 
-    @keyframes name
-        0%
-            opacity: 0
-        100%
-            opacity: 1
-
     #artwork-info-container
         position: absolute
+        z-index: 2
         #artwork-info
             font-family: vars.$almarai
             font-size: 15pt
@@ -121,7 +117,7 @@
                     size: 25pt
                 color: #f1e6ac
                 height: fit-content
-                width: 180px
+                width: 200px
 
     #image-container 
         display: flex
@@ -158,31 +154,44 @@
                 margin-right: 20px
                 width: fit-content
 
+        #names-container
+            li
+                a
+                    padding: 5px
+                    background-color: vars.$artists-background
+                    border-radius: 5px
+
 @media screen and (max-width: 560px)
     #artists-container
-        display: flex
-        flex-direction: column
         justify-content: center
+        
         .artist-container
+            margin-left: -40px
             align-items: center
             flex-direction: column
+
             a
                 margin: 0
                 p
                     width: fit-content
+
             img
                 &:nth-child(1)
                     width: 350px
+                    
                 &:nth-child(2)
                     width: 350px
                     position: relative
                     left: 0
                     top: 0
+
                 &:nth-child(3)
                     width: 350px
+
         #artwork-info-container
             #artwork-info
                 height: 256px
+
                 #artwork-description
                     font-size: 12pt
 
