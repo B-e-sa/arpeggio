@@ -52,11 +52,7 @@ const Artist = (): JSX.Element => {
 
   useEffect(() => {
 
-    for (let i = 0; i < art.artists.length; i++) {
-      if (art.artists[i].nickName.indexOf(capitalizedArtistName) == 0) {
-        setArtist(art.artists[i])
-      }
-    }
+    setArtist(art.artists.find(({nickName}) => nickName === capitalizedArtistName))
 
   }, [])
 
@@ -71,7 +67,7 @@ const Artist = (): JSX.Element => {
 
   return (
     <div id='artist-container'>
-      <div id='left-container' style={{}}>
+      <div id='left-container'>
         <div id='header-container'>
           <div>
             <img src={artist?.portrait} alt={artist?.nickName} />
@@ -88,7 +84,7 @@ const Artist = (): JSX.Element => {
                   width='122px'
                   height='150px'
                   src={artist?.artWorks[index].image}
-                  alt=""
+                  alt={artist?.artWorks[index].name}
                 />
               )
             })}

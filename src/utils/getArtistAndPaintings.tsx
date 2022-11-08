@@ -1,6 +1,6 @@
 import art from './art.json'
 
-const artistsAndPaintings = (onclick: any) => {
+const getArtistsAndPaintings = (onclick: any) => {
     const artist: any = []
 
     for (let i = 0; i < art.artists.length; i++) {
@@ -31,4 +31,4 @@ const artistsAndPaintings = (onclick: any) => {
 
 }
 
-export default artistsAndPaintings
+export default getArtistsAndPaintings

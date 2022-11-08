@@ -5,7 +5,7 @@ import menu from '../../assets/menu.svg'
 import './artists.sass'
 import Menu from '../../components/artists/menu/Menu'
 import ArtInfo from '../../components/artists/ArtInfo'
-import artistsAndPaintings from '../../utils/getArtistAndPaintings'
+import getArtistsAndPaintings from '../../utils/getArtistAndPaintings'
 import ImageMagnifier from '../../utils/ImageMagnifier'
 
 const Artist = (): JSX.Element => {
@@ -46,7 +46,7 @@ const Artist = (): JSX.Element => {
       setIsMenuOpen(true)
   }
 
-  const artistAndPaintings = artistsAndPaintings(handleImageClick)
+  const artistAndPaintings = getArtistsAndPaintings(handleImageClick)
 
   /* 
   * there is a error on props in item[0] that says
