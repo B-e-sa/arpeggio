@@ -1,10 +1,10 @@
 import './menu.sass'
 
-const Menu = (props: any, isActive: boolean): JSX.Element => {
+const Menu = ({props}: any, isActive: boolean): JSX.Element => {
     return (
         <div id="line-container">
             <ul id="names-container">
-                {props.props.map((item) => {
+                {props.map((item: any) => {
                     return (
                         <li>
                             <a href={`#${item[0].props?.children.replaceAll(' ', '_')}`}>

@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import art from '../../utils/art.json'
-import menu from '../../assets/menu.svg'
 import './artists.sass'
 import Menu from '../../components/artists/menu/Menu'
-import ArtInfo from '../../components/artists/ArtInfo'
 import getArtistsAndPaintings from '../../utils/getArtistAndPaintings'
-import ImageMagnifier from '../../components/imageMagnifier/ImageMagnifier'
 
 const Artist = (): JSX.Element => {
 
@@ -62,7 +59,7 @@ const Artist = (): JSX.Element => {
         id='artists-button'
         onClick={handleMenuClick}
       ></button>
-      {isMenuOpen && < Menu props={artistAndPaintings} />}
+      {isMenuOpen && <Menu props={artistAndPaintings} />}
       <div>
         {artInfo.length === 1 &&
           artistAndPaintings.map((item: any[]) => {
