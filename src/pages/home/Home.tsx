@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ImageMagnifier from '../../utils/ImageMagnifier'
+import ImageMagnifier from '../../components/imageMagnifier/ImageMagnifier'
 import './home.sass'
 
 const Home = (): JSX.Element => {

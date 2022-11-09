@@ -16,21 +16,26 @@ main
         height: 100vh
 
         h1
+            height: 30vh
             font:
                 family: vars.$alkalami
                 size: 22vw
             color: vars.$font-color
             margin-left: 20px
 
-        div
-            height: 42%
+        > div
+            height: 70vh
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            align-items: flex-end
             margin-right: 45px
-            text-align: right
 
             p
                 color: vars.$font-color
                 font:
-                    size: 30pt
+                    size: 55pt
+                    family: vars.$almarai
 
             p:nth-child(2)
                 span
@@ -42,11 +47,25 @@ main
         flex-direction: column
         justify-content: space-around
 
-        div
+        > div
+            width: 450px
+            font:
+                size: 20pt
+                family: vars.$almarai
+
             &:nth-child(1)
                 text-align: center
                 margin-top: 150px
                 color: vars.$font-color
+
+@media screen and ( max-width: 900px )
+    main
+        #welcome-container
+            > div
+                justify-content: center
+                align-items: center
+                margin: 0
+                text-align: center
 
 @media screen and (max-width: 580px)
     main
@@ -55,14 +74,10 @@ main
         justify-content: space-evenly
         height: 100vh
         h1
-            padding-top: 25px
+            padding-top: 155px
         #welcome-container
-            height: fit-content
             > div
-                
-                
                 margin: 0
                 text-align: center
                 p
                     font-size: 25pt
-                

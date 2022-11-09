@@ -6,7 +6,7 @@ import './artists.sass'
 import Menu from '../../components/artists/menu/Menu'
 import ArtInfo from '../../components/artists/ArtInfo'
 import getArtistsAndPaintings from '../../utils/getArtistAndPaintings'
-import ImageMagnifier from '../../utils/ImageMagnifier'
+import ImageMagnifier from '../../components/imageMagnifier/ImageMagnifier'
 
 const Artist = (): JSX.Element => {
 

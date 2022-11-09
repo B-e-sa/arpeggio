@@ -19,7 +19,7 @@
 
     margin-top: -39px
 
-    overflow: hidden
+    overflow-y: hidden
 
     display: flex
     flex-direction: column
@@ -38,10 +38,11 @@
         animation: emerge 0.5s
 
     #artwork-container
+        margin-bottom: 50px
         position: relative
         display: flex
         align-items: center
-        overflow-y: visible
+        overflow-y: hidden
         overflow-x: auto
         max-width: 100%
         height: 375px
@@ -58,12 +59,6 @@
 
         &:hover
             img:hover
-                width: 600px
-                height: 450px
-                margin-top: -55px
-
-        &:hover
-            img:hover
                 ~ span
                     opacity: 100%
         span
@@ -76,21 +71,37 @@
             color: #90b0bb
 
             position: absolute
-            top: 50%
+            top: 55%
             margin-left: -138px
             z-index: 1
 
     .image-container
         height: 350px
-
         margin-left: 25px
+
+        img
+            position: relative
 
         &:nth-child(even)
             height: 300px
 
-        &:nth-child(even) img
-            height: 300px
-            width: 280px
+            img
+                height: 300px
+                width: 280px
+
+                &:hover
+                    z-index: 1
+                    bottom: 75px
+                    width: 600px
+                    height: 450px
+
+        &:nth-child(odd)
+            img
+                &:hover
+                    z-index: 1
+                    bottom: 50px
+                    height: 450px
+                    width: 600px
 
     img
         width: 290px
@@ -100,44 +111,52 @@
 
         transition: filter 0.4s, width 0.4s, height 0.4s, margin-top 0.4s
 
-    #scroll-container
-        position: relative
+#scroll-container
+    width: 100vw
+    display: flex
+    flex-direction: column
+    justify-content: center
+    position: absolute
+    bottom: 10%
+    align-items: center
+
+    > div
         display: flex
         align-items: center
         animation: emerge 0.5s
+        bottom: 25px
 
-        input
+    input
+        position: relative
+        &:nth-child(1)
+            transform: rotate(-90deg)
+
+        &:nth-last-child(1)
+            transform: rotate(90deg)
+
+    #scroll
+        height: fit-content
+        width: 160px
+        background-color: rgb(202, 200, 196)
+        border-radius: 20px
+        margin-left: 5px
+
+        > div
             position: relative
-            &:nth-child(1)
-                transform: rotate(-90deg)
 
-            &:nth-last-child(1)
-                transform: rotate(90deg)
+            height: 4px
+            width: 40px
 
-        #scroll
-            position: relative
-            height: fit-content
-            width: 160px
-            background-color: rgb(202, 200, 196)
             border-radius: 20px
-            margin-left: 5px
+            background-color: rgb(144, 143, 138)
 
-            > div
-                position: relative
+            transition: left 0.1s linear
 
-                height: 4px
-                width: 40px
-
-                border-radius: 20px
-                background-color: rgb(144, 143, 138)
-
-                transition: left 0.1s linear
-
-        span
-            font:
-                family: 'PT Serif', serif
-                size: 45pt
-            color: #69665b
+    span
+        font:
+            family: 'PT Serif', serif
+            size: 45pt
+        color: #69665b
 
 @media screen and ( max-width: 690px)
     #gallery-container
@@ -158,7 +177,7 @@
                 top: 45px
                 &:nth-child(1)
                     left: 45px
-                &:nth-last-child(1) 
+                &:nth-last-child(1)
                     left: -45px
             span
                 font-size: 32pt
