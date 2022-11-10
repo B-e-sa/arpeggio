@@ -2,7 +2,8 @@
 
 # 🔨 This site is under construction!!! 
 But... if you want to see it:
-https://b-e-sa-arpeggio.netlify.app
+https://b-e-sa-arpeggio.netlify.app <br>
+Expect major responsive/lag bugs
 
 ## Introduction
 
