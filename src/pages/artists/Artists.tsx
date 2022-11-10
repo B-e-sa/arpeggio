@@ -9,19 +9,21 @@ const Artist = (): JSX.Element => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [artInfo, setArtInfo] = useState([''])
-  const [scrollLastPosition, setScrollLastPosition] = useState(0)
+  const [artInfoIsClosed, setArtInfoIsClosed] = useState(false)
 
   useEffect(() => {
 
-    const getScrollLastPosition: number = Number(sessionStorage.getItem('scrollLastPosition'))
+    const getScrollLastPosition: number =
+      Number(sessionStorage.getItem('scrollLastPosition'))
 
-    setScrollLastPosition(getScrollLastPosition)
+    document.documentElement.scrollTop = getScrollLastPosition
 
-    document.documentElement.scrollTop = scrollLastPosition
-
-  }, [])
+  }, [artInfoIsClosed])
 
   const handleImageClick = (e: any) => {
+
+    handleSetLastScrollPosition()
+
     for (let j = 0; j < art.artists.length; j++) {
       for (let k = 0; k < art.artists[j].artWorks.length; k++) {
         if (art.artists[j].artWorks[k].name === e.target.alt) {
@@ -34,6 +36,7 @@ const Artist = (): JSX.Element => {
         }
       }
     }
+
   }
 
   const handleMenuClick = (): void => {
@@ -41,6 +44,14 @@ const Artist = (): JSX.Element => {
       setIsMenuOpen(false)
       :
       setIsMenuOpen(true)
+  }
+
+  const handleSetLastScrollPosition = () => {
+    console.log('oi')
+    sessionStorage.setItem(
+      'scrollLastPosition',
+      JSON.stringify(document.documentElement.scrollTop)
+    )
   }
 
   const artistAndPaintings = getArtistsAndPaintings(handleImageClick)
@@ -59,7 +70,12 @@ const Artist = (): JSX.Element => {
         id='artists-button'
         onClick={handleMenuClick}
       ></button>
-      {isMenuOpen && <Menu props={artistAndPaintings} />}
+      {isMenuOpen &&
+        <Menu props={[
+          artistAndPaintings,
+          handleSetLastScrollPosition
+        ]} />
+      }
       <div>
         {artInfo.length === 1 &&
           artistAndPaintings.map((item: any[]) => {
@@ -67,7 +83,7 @@ const Artist = (): JSX.Element => {
               <div id={item[0].props?.children.replaceAll(' ', '_')} className='artist-container'>
                 <Link
                   to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}
-                  onClick={() => sessionStorage.setItem('scrollLastPosition', JSON.stringify(document.documentElement.scrollTop))}
+                  onClick={handleSetLastScrollPosition}
                 >
                   {item[0]}
                 </Link>
@@ -81,7 +97,14 @@ const Artist = (): JSX.Element => {
       </div>
       {artInfo.length !== 1 &&
         <div id='artwork-info-container'>
-          <button onClick={() => setArtInfo([''])}>X</button>
+          <button onClick={() => {
+            setArtInfo([''])
+            if (artInfoIsClosed) {
+              setArtInfoIsClosed(false)
+            } else {
+              setArtInfoIsClosed(true)
+            }
+          }}>X</button>
           <div id='artwork-image'>
             <img src={artInfo?.[0]} alt="" />
           </div>

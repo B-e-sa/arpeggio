@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import getSortedArtworksByDate from '../../utils/getSortedArtworksByArtworks'
-import ImageMagnifier from '../../components/imageMagnifier/ImageMagnifier'
 import './gallery.sass'
+import arrow from '../../assets/arrow.svg'
 
 const sortedArtworks = getSortedArtworksByDate()
 
@@ -67,7 +67,7 @@ const Gallery = (): JSX.Element => {
         <div>
           <input
             type="image"
-            src="../../src/assets/arrow.svg"
+            src={arrow}
             alt="left-arrow"
             width="35px"
             height="35px"
@@ -80,7 +80,7 @@ const Gallery = (): JSX.Element => {
           <span>{sortedArtworks && sortedArtworks[sortedArtworks.length - 1][0]}</span>
           <input
             type="image"
-            src="../../src/assets/arrow.svg"
+            src={arrow}
             alt="rigth-arrow"
             width="35px"
             height="35px"

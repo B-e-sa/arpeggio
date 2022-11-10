@@ -1,13 +1,19 @@
 import './menu.sass'
 
-const Menu = ({props}: any, isActive: boolean): JSX.Element => {
+const Menu = ({props}: any): any => {
+
     return (
         <div id="line-container">
             <ul id="names-container">
-                {props.map((item: any) => {
+                {props[0].map((item: any) => {
+                  
                     return (
                         <li>
-                            <a href={`#${item[0].props?.children.replaceAll(' ', '_')}`}>
+                            <a
+                                onClick={props}
+                                key={item[0].props?.children}
+                                href={`#${item[0].props?.children.replaceAll(' ', '_')}`}
+                            >
                                 {item[0].props?.children}
                             </a>
                         </li>
