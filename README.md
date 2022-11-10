@@ -8,7 +8,7 @@ Expect major responsive/lag bugs
 ## Introduction
 
 The main goal for this project was to make an site that looks different than most generic portfolios. <br>
-I was super excited to create an API that brings together countless artists, with their works and information about their lives.<br> 
+I was super excited to create an API that brings together countless artists, with information about their lives and their artworks.<br> 
 So I thought... Why not make such API but also a website that shows it? So this is **Arpeggio**.
 
 ## What it does
