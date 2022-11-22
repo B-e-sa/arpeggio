@@ -28,13 +28,11 @@ that shows more informations about him and more two artworks (five artworks in t
 - Vite
 
 ## Installation
-`` cd weather-project ``<br>
 `` npm install ``<br>
 `` npm run dev ``
 
 or:
 
-`` cd weather-project ``<br>
 `` npm install ``<br>
 `` npm run build ``<br>
 `` npm run preview ``
