@@ -8,10 +8,16 @@ const Gallery = (): JSX.Element => {
   const artworkContainerElement: any = useRef(null)
   const scrollElement: any = useRef(null)
 
+  const [maxScrollWidth, setMaxScrollWidth] = useState(0)
+
   const sortedArtworks = getSortedArtworksByDate()
 
   useEffect(() => {
-    console.log()
+    setMaxScrollWidth(
+      artworkContainerElement?.current?.scrollWidth
+      -
+      artworkContainerElement?.current?.clientWidth
+    )
   }, [])
 
   const handleLeftClick = () => {
@@ -58,7 +64,7 @@ const Gallery = (): JSX.Element => {
             ref={scrollElement}
             type="range"
             min={0}
-            max={String(artworkContainerElement?.current?.scrollWidth - artworkContainerElement?.current?.clientWidth)}
+            max={String(maxScrollWidth)}
             name="scroll range"
             id="scroll-range"
           />
