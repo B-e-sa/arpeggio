@@ -1,55 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useRef, useState, useMemo, useEffect } from 'react'
+import arrow from '../../assets/arrow.svg'
 import getSortedArtworksByDate from '../../utils/getSortedArtworksByArtworks'
 import './gallery.sass'
-import arrow from '../../assets/arrow.svg'
-
-const sortedArtworks = getSortedArtworksByDate()
 
 const Gallery = (): JSX.Element => {
 
-  const [scrollPosition, setScrollPosition] = useState(0)
-  const [artworkElement, setArtworkElement] = useState<HTMLElement | null>()
+  const artworkContainerElement: any = useRef(null)
+  const scrollElement: any = useRef(null)
+
+  const sortedArtworks = getSortedArtworksByDate()
 
   useEffect(() => {
-
-    const scrollX: HTMLElement | null = document?.getElementById('artwork-container')
-    setArtworkElement(scrollX)
-
-    const handleWheel = (e: WheelEvent): void => {
-
-      // wheel up
-      if (e.deltaY === -100) {
-
-        scrollX!.scrollLeft += 350
-
-      } else {
-
-        scrollX!.scrollLeft -= 350
-
-      }
-
-    }
-
-    document.addEventListener('wheel', handleWheel)
-
-    return () => {
-      document.removeEventListener('wheel', handleWheel)
-    }
-
+    console.log()
   }, [])
 
-  const handleArrowLeftClick = (): void => {
-    artworkElement!.scrollLeft -= 350
+  const handleLeftClick = () => {
+    artworkContainerElement.current.scrollLeft -= 550
+    scrollElement.current.value =
+      Number(scrollElement.current.value) - 550
   }
 
-  const handleArrowRightClick = (): void => {
-    artworkElement!.scrollLeft += 350
+  const handleRightClick = () => {
+    artworkContainerElement.current.scrollLeft += 550
+    scrollElement.current.value =
+      Number(scrollElement.current.value) + 550
   }
 
   return (
     <>
       <div id='gallery-container'>
-        <div id='artwork-container'>
+        <div id='artwork-container' ref={artworkContainerElement}>
           {sortedArtworks.map((_item: string[], index: number) => {
             return (
               <div key={Math.random()} className='image-container'>
@@ -71,12 +51,17 @@ const Gallery = (): JSX.Element => {
             alt="left-arrow"
             width="35px"
             height="35px"
-            onClick={handleArrowLeftClick}
+            onClick={handleLeftClick}
           />
           <span>{sortedArtworks && sortedArtworks[0][0]}</span>
-          <div id='scroll'>
-            <div id='scroll-tumb'></div>
-          </div>
+          <input
+            ref={scrollElement}
+            type="range"
+            min={0}
+            max={String(artworkContainerElement?.current?.scrollWidth - artworkContainerElement?.current?.clientWidth)}
+            name="scroll range"
+            id="scroll-range"
+          />
           <span>{sortedArtworks && sortedArtworks[sortedArtworks.length - 1][0]}</span>
           <input
             type="image"
@@ -84,12 +69,11 @@ const Gallery = (): JSX.Element => {
             alt="rigth-arrow"
             width="35px"
             height="35px"
-            onClick={handleArrowRightClick}
+            onClick={handleRightClick}
           />
         </div>
         <p>CLICK/SCROLL TO EXPLORE</p>
       </div>
-
     </>
   )
 }

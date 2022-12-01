@@ -28,7 +28,6 @@ const getArtistsAndPaintings = (onclick: any) => {
     }
 
     return artist
-
 }
 
 export default getArtistsAndPaintings

@@ -11,6 +11,7 @@ const Artist = (): JSX.Element => {
   const [artInfo, setArtInfo] = useState([''])
   const [artInfoIsClosed, setArtInfoIsClosed] = useState(false)
 
+
   useEffect(() => {
 
     const getScrollLastPosition: number =
@@ -47,14 +48,22 @@ const Artist = (): JSX.Element => {
   }
 
   const handleSetLastScrollPosition = () => {
-    console.log('oi')
-    sessionStorage.setItem(
-      'scrollLastPosition',
-      JSON.stringify(document.documentElement.scrollTop)
-    )
+
+    const currentScrollPosition = JSON.stringify(document.documentElement.scrollTop)
+
+    sessionStorage.setItem('scrollLastPosition', currentScrollPosition)
+
   }
 
   const artistAndPaintings = getArtistsAndPaintings(handleImageClick)
+
+  const handleCloseArtinfo = () => {
+    setArtInfo([''])
+    artInfoIsClosed ?
+      setArtInfoIsClosed(false)
+      :
+      setArtInfoIsClosed(true)
+  }
 
   /* 
   * there is a error on props in item[0] that says
@@ -74,8 +83,7 @@ const Artist = (): JSX.Element => {
         <Menu props={[
           artistAndPaintings,
           handleSetLastScrollPosition
-        ]} />
-      }
+        ]} />}
       <div>
         {artInfo.length === 1 &&
           artistAndPaintings.map((item: any[]) => {
@@ -97,14 +105,7 @@ const Artist = (): JSX.Element => {
       </div>
       {artInfo.length !== 1 &&
         <div id='artwork-info-container'>
-          <button onClick={() => {
-            setArtInfo([''])
-            if (artInfoIsClosed) {
-              setArtInfoIsClosed(false)
-            } else {
-              setArtInfoIsClosed(true)
-            }
-          }}>X</button>
+          <button onClick={handleCloseArtinfo}>X</button>
           <div id='artwork-image'>
             <img src={artInfo?.[0]} alt="" />
           </div>
