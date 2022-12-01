@@ -29,13 +29,17 @@ that shows more informations about him and more two artworks (five artworks in t
 
 ## Installation
 `` npm install ``<br>
-`` npm run dev ``
+`` npm run dev ``<br>
+go to<br>
+``http://localhost:5173/`` (default vite port)
 
 or:
 
 `` npm install ``<br>
 `` npm run build ``<br>
-`` npm run preview ``
+`` npm run preview ``<br>
+go to<br>
+``http://localhost:4173/`` (default vite port)
 
 
 ## Todos
