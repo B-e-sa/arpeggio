@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Menu from '../../components/menu/Menu'
 import art from '../../utils/art.json'
 import getArtistsAndPaintings from '../../utils/getArtistAndPaintings'
+import getPreloaders from '../../utils/getPreloaders'
 import './artists.sass'
 
 const Artist = (): JSX.Element => {
@@ -64,56 +65,68 @@ const Artist = (): JSX.Element => {
   }
 
   return (
-    <div id='artists-container' style={{
-      height: artInfo.length !== 1 ? '100vh' : 'fit-content',
-    }}>
-      <button
-        style={isMenuOpen ? { transform: 'rotate(90deg)' } : {}}
-        id='artists-button'
-        onClick={handleMenuClick}
-        title='menu'
-        aria-label='menu'
-      ></button>
-      {isMenuOpen &&
-        <Menu props={[
-          artistAndPaintings,
-          handleSetLastScrollPosition
-        ]} />}
-      <div>
-        {artInfo.length === 1 &&
-          artistAndPaintings.map((item: any[]) => {
-            return (
-              <div id={item[0].props?.children.replaceAll(' ', '_')} className='artist-container'>
-                <Link
-                  to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}
-                  onClick={handleSetLastScrollPosition}
+    <>
+      {artistAndPaintings[0][1].map((item: { props: { src: string, alt: string } }) => {
+        return (<link
+          key={item.props.alt}
+          rel='preload'
+          href={item.props.src}
+          as='image'
+        />)
+      })}
+      <div
+        id='artists-container'
+        style={{ height: artInfo.length !== 1 ? '100vh' : 'fit-content', }}
+      >
+        <button
+          style={isMenuOpen ? { transform: 'rotate(90deg)' } : {}}
+          id='artists-button'
+          onClick={handleMenuClick}
+          title='menu'
+          aria-label='menu'
+        ></button>
+        {isMenuOpen &&
+          <Menu props={[artistAndPaintings, handleSetLastScrollPosition]} />}
+        <div>
+          {artInfo.length === 1 &&
+            artistAndPaintings.map((item: any[]) => {
+              return (
+                <div 
+                key={item[0].props?.children}
+                id={item[0].props?.children.replaceAll(' ', '_')} 
+                className='artist-container'
                 >
-                  {item[0]}
-                </Link>
-                <div id='image-container'>
-                  {item[1]}
+                  <Link
+                    to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}
+                    onClick={handleSetLastScrollPosition}
+                  >
+                    {item[0]}
+                  </Link>
+                  <div id='image-container'>
+                    {item[1]}
+                  </div>
                 </div>
+              )
+            })
+          }
+        </div>
+        {artInfo.length !== 1 &&
+          <div id='artwork-info-container'>
+            <button onClick={closeArtinfo}>X</button>
+            <div id='artwork-image'>
+              <img src={artInfo?.[0]} alt="" />
+            </div>
+            <div id='artwork-info'>
+              <div>
+                <p><b>NAME:</b>{artInfo?.[1]}</p>
+                <p><b>DATE: </b>{artInfo[2]?.toUpperCase()}</p>
               </div>
-            )
-          })
+              <p id='artwork-description'>{artInfo?.[3]}</p>
+            </div>
+          </div>
         }
       </div>
-      {artInfo.length !== 1 &&
-        <div id='artwork-info-container'>
-          <button onClick={closeArtinfo}>X</button>
-          <div id='artwork-image'>
-            <img src={artInfo?.[0]} alt="" />
-          </div>
-          <div id='artwork-info'>
-            <div>
-              <p><b>NAME:</b>{artInfo?.[1]}</p>
-              <p><b>DATE: </b>{artInfo[2]?.toUpperCase()}</p>
-            </div>
-            <p id='artwork-description'>{artInfo?.[3]}</p>
-          </div>
-        </div>
-      }
-    </div>
+    </>
   )
 }
 
