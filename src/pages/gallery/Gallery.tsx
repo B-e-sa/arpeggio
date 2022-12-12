@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, useMemo, useEffect } from 'react'
+import { useCallback, useRef, useState, useMemo, useEffect, lazy } from 'react'
 import arrow from '../../assets/arrow.svg'
 import getSortedArtworksByDate from '../../utils/getSortedArtworksByArtworks'
 import './gallery.sass'
@@ -32,17 +32,30 @@ const Gallery = (): JSX.Element => {
       Number(scrollElement.current.value) + 550
   }
 
+  let lazyLoad = 0
   return (
     <>
+      {sortedArtworks.slice(0, 5).map((item) => {
+        return (
+          <link
+            key={Math.random()}
+            rel='preload'
+            href={item[1]}
+            as='image'
+          />
+        )
+      })}
       <div id='gallery-container'>
         <div id='artwork-container' ref={artworkContainerElement}>
           {sortedArtworks.map((_item: string[], index: number) => {
+            lazyLoad++
             return (
-              <div key={Math.random()} className='image-container'>
+              <div key={sortedArtworks[index][2]} className='image-container'>
                 <img
+                  loading={lazyLoad > 5 ? "lazy" : undefined}
                   src={sortedArtworks[index][1]}
                   draggable='false'
-                  alt=""
+                  alt={sortedArtworks[index][2]}
                 /><span>{sortedArtworks[index][0]}</span>
               </div>
             )

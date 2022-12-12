@@ -91,10 +91,10 @@ const Artist = (): JSX.Element => {
           {artInfo.length === 1 &&
             artistAndPaintings.map((item: any[]) => {
               return (
-                <div 
-                key={item[0].props?.children}
-                id={item[0].props?.children.replaceAll(' ', '_')} 
-                className='artist-container'
+                <div
+                  key={item[0].props?.children}
+                  id={item[0].props?.children.replaceAll(' ', '_')}
+                  className='artist-container'
                 >
                   <Link
                     to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}
