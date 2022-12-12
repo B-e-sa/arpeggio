@@ -11,9 +11,7 @@ const Menu = ({ props }: any): any => {
                                 onClick={props[1]}
                                 key={item[0].props?.children}
                                 href={`#${item[0].props?.children.replaceAll(' ', '_')}`}
-                            >
-                                {item[0].props?.children}
-                            </a>
+                            >{item[0].props?.children}</a>
                         </li>
                     )
                 })}

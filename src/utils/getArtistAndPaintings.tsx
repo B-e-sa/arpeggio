@@ -18,10 +18,13 @@ const getArtistsAndPaintings = (onclick: any) => {
         for (let c = 0; c < art.artists[i].artWorks.length - 2; c++) {
             artist[i][1].push(
                 <img
+                    loading="lazy"
                     onClick={onclick}
                     draggable="false"
                     src={art.artists[i].artWorks[c].image}
                     alt={art.artists[i].artWorks[c].name}
+                    width={500}
+                    height={500}
                 />
             )
         }

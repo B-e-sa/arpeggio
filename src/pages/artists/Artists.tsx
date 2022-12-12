@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Menu from '../../components/menu/Menu'
 import art from '../../utils/art.json'
-import './artists.sass'
-import Menu from '../../components/artists/menu/Menu'
 import getArtistsAndPaintings from '../../utils/getArtistAndPaintings'
+import './artists.sass'
 
 const Artist = (): JSX.Element => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [artInfo, setArtInfo] = useState([''])
   const [artInfoIsClosed, setArtInfoIsClosed] = useState(false)
-
 
   useEffect(() => {
 
@@ -37,7 +36,6 @@ const Artist = (): JSX.Element => {
         }
       }
     }
-
   }
 
   const handleMenuClick = (): void => {
@@ -57,7 +55,7 @@ const Artist = (): JSX.Element => {
 
   const artistAndPaintings = getArtistsAndPaintings(handleImageClick)
 
-  const handleCloseArtinfo = () => {
+  const closeArtinfo = () => {
     setArtInfo([''])
     artInfoIsClosed ?
       setArtInfoIsClosed(false)
@@ -65,11 +63,6 @@ const Artist = (): JSX.Element => {
       setArtInfoIsClosed(true)
   }
 
-  /* 
-  * there is a error on props in item[0] that says
-  * props doesn't exists on type string, but it exists
-  * on item objects
-  */
   return (
     <div id='artists-container' style={{
       height: artInfo.length !== 1 ? '100vh' : 'fit-content',
@@ -78,6 +71,8 @@ const Artist = (): JSX.Element => {
         style={isMenuOpen ? { transform: 'rotate(90deg)' } : {}}
         id='artists-button'
         onClick={handleMenuClick}
+        title='menu'
+        aria-label='menu'
       ></button>
       {isMenuOpen &&
         <Menu props={[
@@ -105,7 +100,7 @@ const Artist = (): JSX.Element => {
       </div>
       {artInfo.length !== 1 &&
         <div id='artwork-info-container'>
-          <button onClick={handleCloseArtinfo}>X</button>
+          <button onClick={closeArtinfo}>X</button>
           <div id='artwork-image'>
             <img src={artInfo?.[0]} alt="" />
           </div>
