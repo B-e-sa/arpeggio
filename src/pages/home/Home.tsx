@@ -1,23 +1,6 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import './home.sass'
 
 const Home = (): JSX.Element => {
-
-  const navigate = useNavigate()
-
-  useEffect(() => {
-
-    const presentationContainer = document.getElementById('presentation-container')
-
-    const bottomScrollInterval = setTimeout(() => {
-      presentationContainer?.scrollIntoView()
-    }, 4500)
-
-    return () => clearInterval(bottomScrollInterval);
-
-  })
-
   return (
     <main>
       <div id='welcome-container'>

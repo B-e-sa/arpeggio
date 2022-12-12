@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Menu from '../../components/menu/Menu'
 import art from '../../utils/art.json'
 import getArtistsAndPaintings from '../../utils/getArtistAndPaintings'
-import getPreloaders from '../../utils/getPreloaders'
 import './artists.sass'
 
 const Artist = (): JSX.Element => {
