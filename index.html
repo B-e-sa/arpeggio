@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#efe6ad">
-  <meta name="description" content="A museum like app">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Arpe">
-  <meta name="apple-mobile-web-app-title" content="Arpe">
-  <meta name="msapplication-navbutton-color" content="#efe6ad">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-starturl" content="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <meta name='theme-color' content='#efe6ad'>
+  <meta name='description' content='A museum like app'>
+  <meta name='mobile-web-app-capable' content='yes'>
+  <meta name='apple-mobile-web-app-capable' content='yes'>
+  <meta name='application-name' content='Arpe'>
+  <meta name='apple-mobile-web-app-title' content='Arpe'>
+  <meta name='msapplication-navbutton-color' content='#efe6ad'>
+  <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'>
+  <meta name='msapplication-starturl' content='/'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
   <title>Arpeggio</title>
-  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/svg" sizes="288x288" href="public/logo.svg">
-  <link rel="apple-touch-icon" type="image/svg" sizes="288x288" href="public/logo.svg">
+  <link rel='icon' type='image/svg+xml' href='/logo.svg' />
+  <link rel='manifest' href='manifest.json'>
+  <link rel='icon' type='image/svg' sizes='288x288' href='/logo.svg'>
+  <link rel='apple-touch-icon' type='image/svg' sizes='288x288' href='/logo.svg'>
+  <link rel='stylesheet' href='/src/index.sass'>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+  <div id='root'>
+    <div id='loader'>
+      <h1>Arpeggio</h1>
+      <div id='loader-bar'><div id='loader-progress-bar'></div></div>
+      <img src='/logo.svg' alt='loader icon'>
+    </div>
+  </div>
+  <script>
+    
+    const loaderProgressBar = document.getElementById('loader-progress-bar');
+
+    let progress = 0;
+
+    const progressBarCount = setInterval(() => {
+      progress += 2;
+      loaderProgressBar.style.width = `${progress}px`;
+    }, 100);
+
+    setTimeout(() => {
+      clearInterval(progressBarCount)
+    }, 8000)
+
+  </script>
+  <script type='module' src='/src/main.tsx'></script>
 </body>
 </html>

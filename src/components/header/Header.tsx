@@ -1,4 +1,4 @@
-import { Link, useLocation, Location } from "react-router-dom"
+import { Link, Location, useLocation } from "react-router-dom"
 import './header.sass'
 
 const pageNavs: string[] = [
@@ -10,15 +10,15 @@ const pageNavs: string[] = [
 const Header = (): JSX.Element => {
 
     const location: Location = useLocation()
-    const getActualPage: string[] = location.pathname.split('/')
-    const actualPage: string = getActualPage[1]
+    const getcurrentPage: string[] = location.pathname.split('/')
+    const currentPage: string = getcurrentPage[1]
     const navSpans: JSX.Element[] = []
 
     let color = ''
 
     // if page has more than just one slash, like "/artist/:name"
     // or it is the gallery
-    if (getActualPage.length > 2 || actualPage === 'gallery') {
+    if (getcurrentPage.length > 2 || currentPage === 'gallery') {
         color = 'black'
     } else {
         color = '#e0d9a5'
@@ -37,24 +37,24 @@ const Header = (): JSX.Element => {
 
     return (
         <header>
-            <div
-                style={{
-                    borderBottom: `1px solid ${color}`,
-                    backgroundColor: actualPage === 'artists' && getActualPage.length === 2 ? '#90b0bb' : 'transparent',
-                }}>
-                <nav>
-                    {navSpans.map((item: any) => {
-                        return item
-                    })}
-                </nav>
-                <span>
-                    <Link
-                        to='/'
-                        style={{ color: color }}>
-                        ARPEGGIO
-                    </Link>
-                </span>
-            </div>
+                <div
+                    style={{
+                        borderBottom: `1px solid ${color}`,
+                        backgroundColor:
+                            currentPage === 'artists' && getcurrentPage.length === 2
+                                ? '#90b0bb' : 'transparent',
+                    }}>
+                    <nav>
+                        {navSpans.map((item: JSX.Element) => { return item })}
+                    </nav>
+                    <span>
+                        <Link
+                            to='/'
+                            style={{ color: color }}>
+                            ARPEGGIO
+                        </Link>
+                    </span>
+                </div>
         </header>
     )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Menu from '../../components/menu/Menu'
+import Menu from '../../components/Menu/Menu'
 import art from '../../utils/art.json'
 import getArtistsAndPaintings from '../../utils/getArtistAndPaintings'
 import './artists.sass'
@@ -88,21 +88,21 @@ const Artist = (): JSX.Element => {
           <Menu props={[artistAndPaintings, handleSetLastScrollPosition]} />}
         <div>
           {artInfo.length === 1 &&
-            artistAndPaintings.map((item: any[]) => {
+            artistAndPaintings.map(([name, arts]: any) => {
               return (
                 <div
-                  key={item[0].props?.children}
-                  id={item[0].props?.children.replaceAll(' ', '_')}
+                  key={name.props?.children}
+                  id={name.props?.children.replaceAll(' ', '_')}
                   className='artist-container'
                 >
                   <Link
-                    to={item[0].props?.children.toLowerCase().replaceAll(' ', '_')}
+                    to={name.props?.children.toLowerCase().replaceAll(' ', '_')}
                     onClick={handleSetLastScrollPosition}
                   >
-                    {item[0]}
+                    {name}
                   </Link>
                   <div id='image-container'>
-                    {item[1]}
+                    {arts}
                   </div>
                 </div>
               )

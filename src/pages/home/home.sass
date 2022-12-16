@@ -43,9 +43,6 @@ main
 
     #presentation-container
         padding: 0 50px 0 50px
-        display: flex
-        flex-direction: column
-        justify-content: space-around
 
         > div
             width: 450px
@@ -53,31 +50,43 @@ main
                 size: 20pt
                 family: vars.$almarai
 
-            &:nth-child(1)
+            p
                 text-align: center
                 margin-top: 150px
                 color: vars.$font-color
 
-@media screen and ( max-width: 900px )
-    main
-        #welcome-container
-            > div
-                justify-content: center
-                align-items: center
-                margin: 0
-                text-align: center
-
-@media screen and (max-width: 580px)
+@media screen and (max-width: 900px )
     main
         display: flex
         flex-direction: column
         justify-content: space-evenly
         height: 100vh
-        h1
-            padding-top: 155px
         #welcome-container
+            height: fit-content
             > div
+                justify-content: center
+                align-items: center
+                height: fit-content
                 margin: 0
                 text-align: center
                 p
+                    font-size: 30pt
+        #presentation-container
+            > div
+                margin: auto
+
+@media screen and (max-width: 580px)
+    main
+        #welcome-container
+            h1
+                height: fit-content
+            > div
+                display: block
+                text-align: center
+                p
                     font-size: 25pt
+        #presentation-container
+            > div
+                width: 10rem
+                p
+                    font-size: 10pt

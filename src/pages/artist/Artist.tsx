@@ -52,7 +52,7 @@ const Artist = (): JSX.Element => {
 
   useEffect(() => {
 
-    setArtist(art.artists.find(({nickName}) => nickName === capitalizedArtistName))
+    setArtist(art.artists.find(({ nickName }) => nickName === capitalizedArtistName))
 
   }, [])
 
@@ -78,13 +78,14 @@ const Artist = (): JSX.Element => {
         <div id='artist-artworks'>
           <p><b>ARTWORKS</b></p>
           <div>
-            {artist?.artWorks.map((item: any, index: number) => {
+            {artist?.artWorks.map((item) => {
+              const { name, image } = item
               return (
                 <img
                   width='122px'
                   height='150px'
-                  src={artist?.artWorks[index].image}
-                  alt={artist?.artWorks[index].name}
+                  src={image}
+                  alt={name}
                 />
               )
             })}

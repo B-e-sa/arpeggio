@@ -35,28 +35,28 @@ const Gallery = (): JSX.Element => {
   let lazyLoad = 0
   return (
     <>
-      {sortedArtworks.slice(0, 5).map((item) => {
+      {sortedArtworks.slice(0, 5).map(([href]) => {
         return (
           <link
             key={Math.random()}
             rel='preload'
-            href={item[1]}
+            href={href}
             as='image'
           />
         )
       })}
       <div id='gallery-container'>
         <div id='artwork-container' ref={artworkContainerElement}>
-          {sortedArtworks.map((_item: string[], index: number) => {
+          {sortedArtworks.map(([date, src, alt]) => {
             lazyLoad++
             return (
-              <div key={sortedArtworks[index][2]} className='image-container'>
+              <div key={alt} className='image-container'>
                 <img
                   loading={lazyLoad > 5 ? "lazy" : undefined}
-                  src={sortedArtworks[index][1]}
+                  src={src}
                   draggable='false'
-                  alt={sortedArtworks[index][2]}
-                /><span>{sortedArtworks[index][0]}</span>
+                  alt={alt}
+                /><span>{date}</span>
               </div>
             )
           })}

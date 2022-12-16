@@ -1,0 +1,35 @@
+@use '../../sass/mixins'
+@use '../../sass/vars'
+#fof-container
+    @include mixins.view-container
+    margin-top: -39px
+    background: black
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-evenly
+    color: vars.$font-color
+
+    h1
+        text-align: center
+        font-size: 132pt
+
+    p
+        font-size: 18.5pt
+        text-align: center
+        color: #a09c81
+
+        b
+            font-size: 30pt
+            color: vars.$font-color
+
+    nav
+        display: flex
+        flex-direction: column
+        align-items: center
+        a
+            color: #e2d47a
+            font-size: 20.5pt
+
+            &:hover
+                color: #c5b865
