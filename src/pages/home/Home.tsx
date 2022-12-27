@@ -36,9 +36,10 @@ const Home = (): JSX.Element => {
               <h1>Arpeggio</h1>
               <div>
                 <p>WELCOME</p>
-                <p>TO <span><i>ARPEGGIO</i></span></p>
+                <p>TO <i>ARPEGGIO</i></p>
               </div>
-            </div><div id='presentation-container'>
+            </div>
+            <div id='presentation-container'>
               <div>
                 <p>ARPEGGIO IS INTENDED TO SHOW YOU A WIDE VARIETY OF ARTISTS AND THEIR GREATEST WORKS</p>
               </div>
