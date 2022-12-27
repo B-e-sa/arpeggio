@@ -13,8 +13,6 @@ const Nav = ({ color }: IColor) => {
         ['GALLERY', '/gallery']
     ]
 
-    console.log(color)
-
     return (
         <nav>
             {pageNavs.map(([name, link]) => {
