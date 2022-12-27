@@ -10,15 +10,15 @@ const pageNavs: string[] = [
 const Header = (): JSX.Element => {
 
     const location: Location = useLocation()
-    const getcurrentPage: string[] = location.pathname.split('/')
-    const currentPage: string = getcurrentPage[1]
+    const getCurrentPage: string[] = location.pathname.split('/')
+    const currentPage: string = getCurrentPage[1]
     const navSpans: JSX.Element[] = []
 
     let color = ''
 
     // if page has more than just one slash, like "/artist/:name"
     // or it is the gallery
-    if (getcurrentPage.length > 2 || currentPage === 'gallery') {
+    if (getCurrentPage.length > 2 || currentPage === 'gallery') {
         color = 'black'
     } else {
         color = '#e0d9a5'
@@ -41,7 +41,7 @@ const Header = (): JSX.Element => {
                     style={{
                         borderBottom: `1px solid ${color}`,
                         backgroundColor:
-                            currentPage === 'artists' && getcurrentPage.length === 2
+                            currentPage === 'artists' && getCurrentPage.length === 2
                                 ? '#90b0bb' : 'transparent',
                     }}>
                     <nav>
