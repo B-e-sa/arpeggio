@@ -40,7 +40,7 @@ const Home = (): JSX.Element => {
         pageFullyLoaded ?
           <>
             <div id='welcome-container'>
-              <h1>Arppegio</h1>
+              <h1>Arpeggio</h1>
               <div>
                 <p>WELCOME</p>
                 <p>TO <span><i>ARPEGGIO</i></span></p>

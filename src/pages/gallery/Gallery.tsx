@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, useMemo, useEffect, lazy } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import arrow from '../../assets/arrow.svg'
 import getSortedArtworksByDate from '../../utils/getSortedArtworksByArtworks'
 import './gallery.sass'

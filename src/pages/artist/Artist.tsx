@@ -44,7 +44,7 @@ const capitalizeFirstLetter = (string: string): any => {
 const Artist = (): JSX.Element => {
 
   const [artist, setArtist] = useState<IArtist>()
-  const [leftContinerWasClosed, setLeftContainerWasClosed] = useState(false)
+  const [leftContainerWasClosed, setLeftContainerWasClosed] = useState(false)
 
   const { artistName }: Readonly<Params<string>> = useParams()
 
@@ -58,7 +58,7 @@ const Artist = (): JSX.Element => {
 
   const handleCloseLeftContainer = () => {
 
-    leftContinerWasClosed ?
+    leftContainerWasClosed ?
       setLeftContainerWasClosed(false)
       :
       setLeftContainerWasClosed(true)

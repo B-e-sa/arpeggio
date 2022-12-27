@@ -55,7 +55,7 @@ const Artist = (): JSX.Element => {
 
   const artistAndPaintings = getArtistsAndPaintings(handleImageClick)
 
-  const closeArtinfo = () => {
+  const closeArtInfo = () => {
     setArtInfo([''])
     artInfoIsClosed ?
       setArtInfoIsClosed(false)
@@ -111,7 +111,7 @@ const Artist = (): JSX.Element => {
         </div>
         {artInfo.length !== 1 &&
           <div id='artwork-info-container'>
-            <button onClick={closeArtinfo}>X</button>
+            <button onClick={closeArtInfo}>X</button>
             <div id='artwork-image'>
               <img src={artInfo?.[0]} alt="" />
             </div>
