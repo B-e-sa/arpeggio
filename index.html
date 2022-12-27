@@ -1,47 +1,64 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
+  <title>Arpeggio</title>
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <meta name='theme-color' content='#efe6ad'>
   <meta name='description' content='A museum like app'>
   <meta name='mobile-web-app-capable' content='yes'>
   <meta name='apple-mobile-web-app-capable' content='yes'>
-  <meta name='application-name' content='Arpe'>
-  <meta name='apple-mobile-web-app-title' content='Arpe'>
+  <meta name='application-name' content='Arpeggio'>
+  <meta name='apple-mobile-web-app-title' content='Arpeggio'>
   <meta name='msapplication-navbutton-color' content='#efe6ad'>
   <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'>
   <meta name='msapplication-starturl' content='/'>
   <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-  <title>Arpeggio</title>
   <link rel='icon' type='image/svg+xml' href='/logo.svg' />
   <link rel='manifest' href='manifest.json'>
   <link rel='icon' type='image/svg' sizes='288x288' href='/logo.svg'>
   <link rel='apple-touch-icon' type='image/svg' sizes='288x288' href='/logo.svg'>
   <link rel='stylesheet' href='/src/index.sass'>
 </head>
+
 <body>
   <div id='root'>
     <div id='loader'>
       <h1>Arpeggio</h1>
-      <div id='loader-bar'><div id='loader-progress-bar'></div></div>
+      <div id='loader-bar'>
+        <div id='progress-bar'></div>
+      </div>
       <img src='/logo.svg' alt='loader icon'>
     </div>
   </div>
   <script>
-    
-    const loaderProgressBar = document.getElementById('loader-progress-bar');
+
+    const progressBar = document.getElementById('progress-bar');
+    const loaderBar = document.getElementById('loader-bar');
+
+    loaderWidth = `${loaderBar.clientWidth}px`;
+    progressBarWidth = progressBar.style.width
 
     let progress = 0;
 
     const progressBarCount = setInterval(() => {
-      progress += 2;
-      loaderProgressBar.style.width = `${progress}px`;
-    }, 100);
 
-    setTimeout(() => {
-      clearInterval(progressBarCount)
-    }, 8000)
+      const loaderIsActive = document.getElementById('loader');
+
+      if (loaderIsActive) {
+
+        if (progressBarWidth != loaderWidth) {
+
+          progress += 2;
+          progressBar.style.width = `${progress}px`;
+
+        } else
+          clearInterval(progressBarCount);
+
+      } else
+        clearInterval(progressBarCount);
+
+    }, 100);
 
   </script>
   <script type='module' src='/src/main.tsx'></script>

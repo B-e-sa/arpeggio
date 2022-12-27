@@ -6,31 +6,21 @@ const Home = (): JSX.Element => {
 
   const [pageFullyLoaded, setPageFullyLoaded] = useState(false)
 
-  const handlePageLoad = () => setPageFullyLoaded(true)
-
-  const setPageHasLoadedOnce = () => {
-    if (sessionStorage.getItem('wasLoadedOnce')) {
-      setPageFullyLoaded(true)
-    } else {
-      if (sessionStorage.getItem('wasLoadedOnce')) {
-        setPageFullyLoaded(true)
-      } else {
-        window.addEventListener('load', () => {
-          handlePageLoad()
-          setPageHasLoadedOnce()
-        })
-
-        return () => window.removeEventListener('load', () => {
-          handlePageLoad()
-          setPageHasLoadedOnce()
-        })
-      }
-    }
-  }
+  const handlePageLoad = () => sessionStorage.setItem('wasLoadedOnce', 'true')
 
   useEffect(() => {
 
-    setPageHasLoadedOnce()
+    if (sessionStorage.getItem('wasLoadedOnce')) {
+
+      setPageFullyLoaded(true)
+
+    } else {
+
+      window.addEventListener('load', () => handlePageLoad())
+
+      return () => window.removeEventListener('load', () => handlePageLoad())
+
+    }
 
   }, [])
 
