@@ -6,7 +6,10 @@ const Home = (): JSX.Element => {
 
   const [pageFullyLoaded, setPageFullyLoaded] = useState(false)
 
-  const handlePageLoad = () => sessionStorage.setItem('wasLoadedOnce', 'true')
+  const handlePageLoad = () => {
+    sessionStorage.setItem('wasLoadedOnce', 'true')
+    setPageFullyLoaded(true)
+  }
 
   useEffect(() => {
 
