@@ -33,17 +33,22 @@
             family: vars.$alkalami
 
     #loader-bar
+        z-index: 50
+        border: 2px solid black
         border-radius: 25px
         height: 10px
         width: 150px
         background-color: black
 
         #loader-progress-bar
+            z-index: -1
             height: 100%
             width: 0px
             background-color: vars.$font-color
 
     img
+        position: relative
+        top: 25px
         animation: rotate linear 2.5s infinite
         width: 70px
         height: 70px
