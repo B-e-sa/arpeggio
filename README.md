@@ -22,6 +22,7 @@ You can click on the artworks to see more info about then, or click on the artis
 that shows more informations about him and more two artworks (five artworks in total).
 
 ## To build this, i used
+- https://github.com/B-e-sa/art-api
 - React.JS
 - React Router
 - Sass
